@@ -1,3 +1,3 @@
 export interface IWallet {
-    id: number;
+  id: number;
 }
