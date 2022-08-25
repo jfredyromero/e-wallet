@@ -1,7 +1,7 @@
-import docsViewTemplate from '../views/docs.html?raw';
+import walletViewTemplate from '../views/wallet.html?raw';
 
 export default (): HTMLDivElement => {
   const divElement = document.createElement('div');
-  divElement.innerHTML = docsViewTemplate;
+  divElement.innerHTML = walletViewTemplate;
   return divElement;
 };

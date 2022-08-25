@@ -5,7 +5,7 @@ import NotFoundController from './not-found.controller.js';
 
 const controllers = {
   home: HomeController,
-  docs: DocsController,
+  wallet: DocsController,
   demo: DemoController,
   notFound: NotFoundController,
 };

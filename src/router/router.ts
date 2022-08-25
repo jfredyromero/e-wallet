@@ -11,8 +11,8 @@ const router = (route: string): HTMLElement => {
     case '#/': {
       return content!.appendChild(controllers.home());
     }
-    case '#/docs': {
-      return content!.appendChild(controllers.docs());
+    case '#/wallet': {
+      return content!.appendChild(controllers.wallet());
     }
     case '#/demo': {
       return content!.appendChild(controllers.demo());
