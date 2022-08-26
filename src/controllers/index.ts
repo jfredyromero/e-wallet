@@ -4,10 +4,10 @@ import DemoController from './demo.controller.js';
 import NotFoundController from './not-found.controller.js';
 
 const controllers = {
-  home: HomeController,
-  wallet: DocsController,
-  demo: DemoController,
-  notFound: NotFoundController,
+	home: HomeController,
+	wallet: DocsController,
+	demo: DemoController,
+	notFound: NotFoundController,
 };
 
 export { controllers };
