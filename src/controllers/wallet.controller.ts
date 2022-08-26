@@ -1,7 +1,7 @@
-import demoViewTemplate from '../views/demo.html?raw';
+import walletViewTemplate from '../views/wallet.html?raw';
 
 export default (): HTMLElement => {
 	const sectionElement = document.createElement('section');
-	sectionElement.innerHTML = demoViewTemplate;
+	sectionElement.innerHTML = walletViewTemplate;
 	return sectionElement;
 };
