@@ -1,13 +1,13 @@
 import homeViewTemplate from '../views/home.html?raw';
 
 export default (): HTMLElement => {
-  const divElement = document.createElement('section');
-  divElement.innerHTML = homeViewTemplate;
+	const sectionElement = document.createElement('section');
+	sectionElement.innerHTML = homeViewTemplate;
 
-  const btnClick = divElement.querySelector('#btnClick');
+	const btnClick = sectionElement.querySelector('#btn-click');
   btnClick!.addEventListener('click', () => {
-    alert('clicked!');
+  	alert('clicked!');
   });
 
-  return divElement;
+  return sectionElement;
 };
