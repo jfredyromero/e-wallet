@@ -21,8 +21,10 @@
 		"eslint-plugin-promise": "^6.0.0",
 		"husky": "^8.0.1",
 		"prettier": "2.7.1",
+		"sass": "^1.54.8",
 		"typescript": "*",
 		"vite": "^3.0.7",
 		"vite-plugin-eslint": "^1.8.1"
-	}
+	},
+	"dependencies": {}
 }
