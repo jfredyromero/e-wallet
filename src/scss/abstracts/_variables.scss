@@ -1,0 +1,43 @@
+$sans-font: -apple-system, BlinkMacSystemFont, 'Avenir Next', Avenir,
+	'Nimbus Sans L', Roboto, 'Noto Sans', 'Segoe UI', Arial, Helvetica,
+	'Helvetica Neue', sans-serif;
+$mono-font: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+$bg-main-color: #0f0638;
+$bg-secundary-color: #291f57;
+$gradient-color-1: #633a97;
+$gradient-color-2: #4c87c6;
+$text-main-color: #dcdcdc;
+$text-secundary-color: #47e7ce;
+@media (prefers-color-scheme: dark) {
+	$bg-main-color: #847aae;
+	$text-main-color: #dcdcdc;
+	:root {
+		color-scheme: dark;
+	}
+	img,
+	video {
+		opacity: 0.8;
+	}
+}
+$breakpoints: (
+	'xs': (
+		max-width: 599px,
+		// lower is mobile
+	),
+	'sm': (
+		min-width: 600px,
+		// greater is tablet portrait-up
+	),
+	'md': (
+		min-width: 768px,
+		// greater is tablet landscape-up
+	),
+	'lg': (
+		min-width: 992px,
+		// greater is desktop
+	),
+	'xl': (
+		min-width: 1200px,
+		// greater is big desktop
+	),
+);

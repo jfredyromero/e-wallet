@@ -1,16 +1,19 @@
-@import url('./abstracts/_variables.scss');
+@import './abstracts/mixins';
+@import './abstracts/variables';
 
-@import url('./base/_base.scss');
-@import url('./base/_typography.scss');
+@import './base/animations';
+@import './base/base';
+@import './base/reset';
+@import './base/typography';
 
-@import url('./components/_button.scss');
+@import './components/button';
 
-@import url('./layout/_footer.scss');
-@import url('./layout/_navbar.scss');
+@import './layout/footer';
+@import './layout/navbar';
 
-@import url('./pages/_demo.scss');
-@import url('./pages/_home.scss');
-@import url('./pages/_not-found.scss');
-@import url('./pages/_wallet.scss');
+@import './pages/demo';
+@import './pages/home';
+@import './pages/not-found';
+@import './pages/wallet';
 
-@import url('./vendors/_simple-css.scss');
+@import './vendors/material-icons';
