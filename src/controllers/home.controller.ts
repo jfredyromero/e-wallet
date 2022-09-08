@@ -1,13 +1,17 @@
-import homeViewTemplate from '../views/home.html?raw';
+// import homeViewTemplate from '../views/home.html?raw';
+import transactionItemComponent 
+	from '../components/transactions/transaction-item.component.js';
+import { getAllTransactions } from '../services/wallet.service.js';
 
 export default (): HTMLElement => {
-	const sectionElement = document.createElement('section');
-	sectionElement.innerHTML = homeViewTemplate;
-
-	const btnClick = sectionElement.querySelector('#btn-click');
-	btnClick!.addEventListener('click', () => {
-		alert('clicked!');
+	const transactions = getAllTransactions();
+	let html = '';
+	transactions.forEach(transaction => {
+		html += transactionItemComponent(transaction);
 	});
+
+	const sectionElement = document.createElement('section');
+	sectionElement.innerHTML = html;
 
 	return sectionElement;
 };

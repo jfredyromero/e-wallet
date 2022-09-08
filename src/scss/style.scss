@@ -1,16 +1,34 @@
-@import url('./abstracts/_variables.scss');
+@import './abstracts/_variables.scss';
 
-@import url('./base/_base.scss');
-@import url('./base/_typography.scss');
+@import './base/_base.scss';
+@import './base/_typography.scss';
 
-@import url('./components/_button.scss');
+@import './components/_button.scss';
 
-@import url('./layout/_footer.scss');
-@import url('./layout/_navbar.scss');
+@import './layout/_footer.scss';
+@import './layout/_navbar.scss';
 
-@import url('./pages/_demo.scss');
-@import url('./pages/_home.scss');
-@import url('./pages/_not-found.scss');
-@import url('./pages/_wallet.scss');
+@import './pages/_demo.scss';
+@import './pages/_home.scss';
+@import './pages/_not-found.scss';
+@import './pages/_wallet.scss';
 
 @import url('./vendors/_simple-css.scss');
+
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.transaction-item__account {
+    font-size: 1.15rem;
+    font-weight: normal;
+}
+
+.transaction-item__amount--incoming {
+    color: green;
+}
+
+.transaction-item__amount--outcoming {
+    color: red;
+}

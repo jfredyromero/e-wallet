@@ -41,7 +41,7 @@
 				"comma-dangle": ["off", "always-multiline"],
 				"no-multiple-empty-lines": ["error"],
 				"max-classes-per-file": "error",
-				"no-console": ["error", { "allow": ["error"] }],
+				"no-console": ["error", { "allow": ["error", "log"] }],
 				"no-empty": ["error"],
 				"no-invalid-this": ["error"],
 				"valid-typeof": ["error"],
