@@ -12,7 +12,7 @@ const getAllTransactions = (): ITransaction[] => {
 		{
 			id: 2,
 			account: 'two@example.com',
-			amount: '$200.00',
+			amount: '-$200.00',
 			incoming: false,
 			createdAt: '07/09/2022',
 		},
@@ -26,8 +26,22 @@ const getAllTransactions = (): ITransaction[] => {
 		{
 			id: 4,
 			account: 'four@example.com',
-			amount: '$400.00',
+			amount: '-$400.00',
 			incoming: false,
+			createdAt: '07/09/2022',
+		},
+		{
+			id: 5,
+			account: 'five@example.com',
+			amount: '$500.00',
+			incoming: true,
+			createdAt: '07/09/2022',
+		},
+		{
+			id: 6,
+			account: 'six@example.com',
+			amount: '$600.00',
+			incoming: true,
 			createdAt: '07/09/2022',
 		},
 	];

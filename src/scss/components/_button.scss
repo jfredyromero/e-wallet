@@ -1,0 +1,25 @@
+.button {
+    display: inline-block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    padding: 18px 30px;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.button--main {
+    color: #000;
+}
+
+.button--ex-small {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+}
+
+.button--main {
+    background-color: #47e7ce !important;
+    background: linear-gradient(60deg, #47e7ce 0%, #4fa8c4 100%) !important;
+}

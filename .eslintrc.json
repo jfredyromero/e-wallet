@@ -63,12 +63,21 @@
 					"error",
 					{ "selfClosing": "always" }
 				],
+				"@html-eslint/no-skip-heading-levels": ["error"],
+				"@html-eslint/require-frame-title": ["error"],
+				"@html-eslint/no-non-scalable-viewport": ["error"],
+				"@html-eslint/no-positive-tabindex": ["error"],
+				"@html-eslint/require-meta-viewport": ["error"],
+				"@html-eslint/no-aria-hidden-body": ["error"],
+				"@html-eslint/no-accesskey-attrs": ["error"],
+				"@html-eslint/require-meta-charset": ["error"],
 				"@html-eslint/require-button-type": ["error"],
 				"@html-eslint/no-extra-spacing-attrs": ["off"],
 				"@html-eslint/no-inline-styles": ["error"],
 				"@html-eslint/no-abstract-roles": ["error"],
 				"@html-eslint/id-naming-convention": ["error", "kebab-case"],
-				"@html-eslint/no-multiple-empty-lines": ["error", { "max": 1 }]
+				"@html-eslint/no-multiple-empty-lines": ["error", { "max": 1 }],
+				"@html-eslint/require-meta-description": ["error"]
 			}
 		}
 	]

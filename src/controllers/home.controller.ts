@@ -1,4 +1,4 @@
-// import homeViewTemplate from '../views/home.html?raw';
+import homeTemplate from '../views/home.html?raw';
 import transactionItemComponent 
 	from '../components/transactions/transaction-item.component.js';
 import { getAllTransactions } from '../services/wallet.service.js';
@@ -11,7 +11,12 @@ export default (): HTMLElement => {
 	});
 
 	const sectionElement = document.createElement('section');
-	sectionElement.innerHTML = html;
+	sectionElement.innerHTML = homeTemplate;
+
+	const transactionListElement = sectionElement
+		.getElementsByClassName('transactions-list');
+	console.log(transactionListElement);
+	transactionListElement[0].innerHTML = html;
 
 	return sectionElement;
 };
