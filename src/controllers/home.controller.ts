@@ -15,7 +15,6 @@ export default (): HTMLElement => {
 
 	const transactionListElement = sectionElement
 		.getElementsByClassName('transactions-list');
-	console.log(transactionListElement);
 	transactionListElement[0].innerHTML = html;
 
 	return sectionElement;
