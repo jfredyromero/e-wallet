@@ -1,6 +1,6 @@
 import homeTemplate from '../views/home.html?raw';
-import transactionItemComponent 
-	from '../components/transactions/transaction-item.component.js';
+// eslint-disable-next-line max-len
+import transactionItemComponent from '../components/transaction-item/transaction-item.component.js';
 import { getAllTransactions } from '../services/wallet.service.js';
 
 export default (): HTMLElement => {
@@ -13,8 +13,8 @@ export default (): HTMLElement => {
 	const sectionElement = document.createElement('section');
 	sectionElement.innerHTML = homeTemplate;
 
-	const transactionListElement = sectionElement
-		.getElementsByClassName('transactions-list');
+	const transactionListElement =
+		sectionElement.getElementsByClassName('transactions-list');
 	transactionListElement[0].innerHTML = html;
 
 	return sectionElement;

@@ -1,7 +1,7 @@
-import demoViewTemplate from '../views/demo.html?raw';
+import addViewTemplate from '../views/add.html?raw';
 
 export default (): HTMLElement => {
 	const sectionElement = document.createElement('section');
-	sectionElement.innerHTML = demoViewTemplate;
+	sectionElement.innerHTML = addViewTemplate;
 	return sectionElement;
 };

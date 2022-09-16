@@ -1,0 +1,67 @@
+.form {
+	&__row {
+		width: 100%;
+		margin-bottom: 10px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		.credit-card-date {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+	&__input {
+		width: calc(100% - 20px);
+		border: none;
+		background-color: transparent;
+		padding: 10px 10px;
+		border-radius: 0px;
+		border-bottom: 1px rgba(255, 255, 255, 0.3) solid;
+		color: white;
+		&--13 {
+			width: calc((100% / 3) - 35px);
+		}
+		&--23 {
+			width: calc(((100% / 3) * 2) - 35px);
+		}
+	}
+}
+.checkbox-simple {
+	margin: 5px;
+	input[type='checkbox'] {
+		display: none;
+		outline: none;
+		& + label {
+			&:before {
+				content: '\00a0';
+				display: inline-block;
+				font-size: 1.8rem;
+				font-weight: 600;
+				width: 28px;
+				height: 28px;
+				border-radius: 2px;
+				-webkit-border-radius: 2px;
+				-khtml-border-radius: 2px;
+				margin: 0 10px 0 0;
+				line-height: 18px;
+				border: none;
+				background-color: $bg-main-color;
+			}
+		}
+		&:checked {
+			& + label {
+				&:before {
+					color: black;
+					content: '\2713';
+					text-align: center;
+					background-color: $text-secundary-color;
+				}
+			}
+		}
+	}
+	label {
+		cursor: pointer;
+		color: white;
+	}
+}

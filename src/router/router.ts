@@ -1,26 +1,37 @@
 import { controllers } from '../controllers/index';
+import addService from '../services/add.service';
 
-const router = (route: string): HTMLElement => {
+const router = (route: string): void => {
 	const content = document.getElementById('app');
-  content!.innerHTML = '';
+	content!.innerHTML = '';
 
-  switch (route) {
-  case '': {
-  	return content!.appendChild(controllers.home());
-  }
-  case '#/': {
-  	return content!.appendChild(controllers.home());
-  }
-  case '#/wallet': {
-  	return content!.appendChild(controllers.wallet());
-  }
-  case '#/demo': {
-  	return content!.appendChild(controllers.demo());
-  }
-  default: {
-  	return content!.appendChild(controllers.notFound());
-  }
-  }
+	switch (route) {
+	case '': {
+			content!.appendChild(controllers.home());
+			break;
+	}
+	case '#/': {
+			content!.appendChild(controllers.home());
+			break;
+	}
+	case '#/add': {
+			content!.appendChild(controllers.add());
+			addService();
+			break;
+	}
+	case '#/give': {
+			content!.appendChild(controllers.give());
+			break;
+	}
+	case '#/transactions': {
+			content!.appendChild(controllers.transactions());
+			break;
+	}
+	default: {
+			content!.appendChild(controllers.notFound());
+			break;
+	}
+	}
 };
 
 export { router };

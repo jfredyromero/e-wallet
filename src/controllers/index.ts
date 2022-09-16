@@ -1,12 +1,14 @@
-import HomeController from './home.controller.js';
-import WalletController from './wallet.controller.js';
-import DemoController from './demo.controller.js';
-import NotFoundController from './not-found.controller.js';
+import HomeController from './home.controller';
+import AddController from './add.controller';
+import GiveController from './give.controller';
+import TransactionsController from './transactions.controller';
+import NotFoundController from './not-found.controller';
 
 const controllers = {
 	home: HomeController,
-	wallet: WalletController,
-	demo: DemoController,
+	add: AddController,
+	give: GiveController,
+	transactions: TransactionsController,
 	notFound: NotFoundController,
 };
 

@@ -5,3 +5,9 @@ body {
 	color: $text-main-color;
 	background-color: $bg-main-color;
 }
+main {
+	margin: 0;
+	.main {
+		margin: 0 5%;
+	}
+}
