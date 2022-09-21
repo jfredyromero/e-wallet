@@ -1,0 +1,17 @@
+// 404 Page
+@keyframes waves {
+	from {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+@keyframes gradient-animation {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 51%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
