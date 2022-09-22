@@ -9,4 +9,9 @@ export default defineConfig({
 			fix: true,
 		}),
 	],
+	test: {
+		coverage: {
+			reporter: ['text', 'html']
+		}
+	}
 });
