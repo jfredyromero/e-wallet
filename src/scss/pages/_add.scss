@@ -1,56 +1,3 @@
-.radio-option {
-	width: auto;
-	display: inline-block;
-	padding: 0;
-	margin: 0 1rem 1rem 0;
-	cursor: pointer;
-	input[type='radio'] {
-		display: none;
-		outline: none;
-		&:checked {
-			& + label {
-				background-color: $text-secundary-color;
-				color: black;
-			}
-		}
-	}
-	label {
-		cursor: pointer;
-		display: block;
-		padding: 1rem 1.2rem;
-		background-color: transparent;
-		border: 1px $text-secundary-color solid;
-		color: $text-secundary-color;
-		text-align: left;
-		font-size: 1.4rem;
-		font-weight: 600;
-		border-radius: 1rem;
-	}
-	&--full {
-		width: 100%;
-		margin: 0 0 1rem 0;
-		input[type='radio'] {
-			&:checked {
-				& + label {
-					background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/2048px-White_check.svg.png);
-					background-repeat: no-repeat;
-					background-position: 1rem 50%;
-					background-size: 1rem;
-				}
-			}
-		}
-		label {
-			padding: 1rem 1.4rem 1rem 2.8rem;
-		}
-	}
-}
-.option-hidden {
-	display: none;
-	margin-bottom: 10px;
-	&.show {
-		display: block;
-	}
-}
 .card-selector {
 	width: 100%;
 	display: inline-block;
@@ -63,7 +10,7 @@
 		&:checked {
 			& + label {
 				background-color: $text-secundary-color;
-				background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/2048px-White_check.svg.png);
+				background-image: url(https://www.sindevo.com/cryptex/cryptex/images/icons/checked-simple.svg);
 				background-repeat: no-repeat;
 				background-position: 1rem 50%;
 				background-size: 1rem;
