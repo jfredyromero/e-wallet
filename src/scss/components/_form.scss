@@ -42,9 +42,9 @@
 	}
 	&__select {
 		padding: 0;
-		width: 100%;
+		width: 60%;
 		@include breakpoint(xl) {
-			width: calc(100% - 60px);
+			width: 70%;
 		}
 		margin: 0;
 		overflow: hidden;
@@ -60,17 +60,14 @@
 		border-bottom: 1px rgba(255, 255, 255, 0.3) solid;
 		select {
 			width: 100%;
-			padding: 18px 0 10px 5px;
+			padding: 10px 25px 0 5px;
 			border: none;
 			color: #fff;
 			box-shadow: none;
 			font-weight: 500;
 			font-size: 1.4rem;
 			background-color: transparent;
-			background-image: none;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
+			text-overflow: ellipsis;
 		}
 	}
 	&__coin-total {
@@ -80,6 +77,7 @@
 	&__coin-icon {
 		display: flex;
 		align-items: center;
+		margin: 0 2%;
 	}
 }
 .radio-option {
