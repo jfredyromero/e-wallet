@@ -1,18 +1,32 @@
 .form {
+	margin: 0 5%;
+	@include breakpoint(sm) {
+		margin: 0 20%;
+	}
 	&__row {
 		width: 100%;
 		margin-bottom: 10px;
 		&:last-of-type {
 			margin-bottom: 0;
 		}
-		.credit-card-date {
+		&--justify-center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&--justify-space {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 		}
+		&--justify-evenly {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+		}
 	}
 	&__input {
-		width: calc(100% - 20px);
+		width: 100%;
 		border: none;
 		background-color: transparent;
 		padding: 10px 10px;
@@ -20,11 +34,105 @@
 		border-bottom: 1px rgba(255, 255, 255, 0.3) solid;
 		color: white;
 		&--13 {
-			width: calc((100% / 3) - 35px);
+			width: calc((100% / 3) - 20px);
 		}
 		&--23 {
-			width: calc(((100% / 3) * 2) - 35px);
+			width: 80%;
 		}
+	}
+	&__select {
+		padding: 0;
+		width: 100%;
+		@include breakpoint(xl) {
+			width: calc(100% - 60px);
+		}
+		margin: 0;
+		overflow: hidden;
+		border-radius: 0px;
+		background-color: transparent;
+		background-image: url(https://www.sindevo.com/cryptex/cryptex/images/icons/arrow-down.svg);
+		background-repeat: no-repeat;
+		background-position: 95% 50%;
+		background-size: 16px;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		color: #fff;
+		border-bottom: 1px rgba(255, 255, 255, 0.3) solid;
+		select {
+			width: 100%;
+			padding: 18px 0 10px 5px;
+			border: none;
+			color: #fff;
+			box-shadow: none;
+			font-weight: 500;
+			font-size: 1.4rem;
+			background-color: transparent;
+			background-image: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+	}
+	&__coin-total {
+		font-size: 2.4rem;
+		font-weight: 600;
+	}
+	&__coin-icon {
+		display: flex;
+		align-items: center;
+	}
+}
+.radio-option {
+	width: auto;
+	display: inline-block;
+	padding: 0;
+	margin: 0 1rem 1rem 0;
+	cursor: pointer;
+	input[type='radio'] {
+		display: none;
+		outline: none;
+		&:checked {
+			& + label {
+				background-color: $text-secundary-color;
+				color: black;
+			}
+		}
+	}
+	label {
+		cursor: pointer;
+		display: block;
+		padding: 1rem 1.2rem;
+		background-color: transparent;
+		border: 1px $text-secundary-color solid;
+		color: $text-secundary-color;
+		text-align: left;
+		font-size: 1.4rem;
+		font-weight: 600;
+		border-radius: 1rem;
+	}
+	&--full {
+		width: 100%;
+		margin: 0 0 1rem 0;
+		input[type='radio'] {
+			&:checked {
+				& + label {
+					background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/2048px-White_check.svg.png);
+					background-repeat: no-repeat;
+					background-position: 1rem 50%;
+					background-size: 1rem;
+				}
+			}
+		}
+		label {
+			padding: 1rem 1.4rem 1rem 2.8rem;
+		}
+	}
+}
+.option-hidden {
+	display: none;
+	margin-bottom: 10px;
+	&.show {
+		display: block;
 	}
 }
 .checkbox-simple {

@@ -3,82 +3,40 @@
 	<a class="back-button" href="#/">
 		<i class="material-icons back-button__icon">arrow_back</i>
 	</a>
-	<h2>Give</h2>
+	<h2>Give cash</h2>
 	<div class="container">
-		<div class="radio-option radio-option--full">
-			<input type="radio" name="payment" id="op5" value="creditcard" />
-			<label for="op5">Credit Card</label>
-		</div>
-		<div class="option-hidden" id="show-credit-cards">
-			<h4 class="pb-10">Existing Credit Cards</h4>
-			<div class="sub-container">
-				<div class="card-selector">
-					<input type="radio" name="excard" id="c1" value="1" />
-					<label for="c1">
-						Visa Credit Card <span>xxxx 6589</span>
-					</label>
-				</div>
-				<div class="card-selector mb-0">
-					<input type="radio" name="excard" id="c2" value="2" />
-					<label for="c2">
-						Master Card <span>xxxx 5623</span> 
-					</label>
-				</div>
-			</div>
-			<h4 class="pb-10">Or Add New Card</h4>
-			<div class="sub-container">
-				<div class="form__row">
-					<input
-						type="text"
-						name="CName"
-						value=""
-						class="form__input required"
-						placeholder="Cardholder Name"
-					/>
-				</div>
-				<div class="form__row">
-					<input
-						type="text"
-						name="CNumber"
-						value=""
-						class="form__input required"
-						placeholder="Cardholder Number"
-					/>
-				</div>
-				<div class="form__row credit-card-date">
-					<input
-						type="date"
-						name="date"
-						value=""
-						class="form__input form__input--23 required"
-						placeholder="Exp Date"
-					/>
-					<input
-						type="text"
-						name="cvc"
-						value=""
-						class="form__input form__input--13 required"
-						placeholder="CVC"
-					/>
-				</div>
-				<div class="form__row mb-0">
-					<div class="checkbox-simple">
-						<input
-							type="checkbox"
-							name="savecard"
-							id="sc"
-							value="savecard"
-						/><label for="sc">Save Credit Card</label>
+		<div class="form">
+			<form id="form" method="post" action="checkout.html">
+				<div class="form__row form__row--justify-center">
+					<div class="form__select">
+						<select name="selectoptions" class="required">
+							<option value="" disabled="" selected="">
+								USD (Dolar)
+							</option>
+							<option value="1">COP (Peso Colombiano)</option>
+							<option value="2">MXN (Peso Mexicano)</option>
+						</select>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="radio-option radio-option--full">
-			<input type="radio" name="payment" id="op4" value="paypal" />
-			<label for="op4">Paypal</label>
-		</div>
-		<div class="option-hidden" id="show-paypal-info">
-			You will be redirected to paypal account to make the payment.
+				<div class="form__row form__row--justify-evenly">
+					<input
+						type="text"
+						name="Text"
+						value=""
+						class="form__input form__input--23"
+						placeholder="0.05"
+					/>
+					<div class="form__coin-icon">
+						<i class="material-icons">monetization_on</i>
+						<span>USD</span>
+					</div>
+				</div>
+				<div
+					class="form__row form__row--justify-center form__coin-total"
+				>
+					$ 2,465.00
+				</div>
+			</form>
 		</div>
 	</div>
 	<a href="#/" class="button button--full button--main open-popup">
