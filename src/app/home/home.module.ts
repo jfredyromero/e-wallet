@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HeroComponent } from '../components/hero/hero.component';
 import { TransanctionsListComponent } from '../components/transanctions-list/transanctions-list.component';
-
 @NgModule({
 	declarations: [HomeComponent],
 	imports: [
