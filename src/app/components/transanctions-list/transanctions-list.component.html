@@ -1,28 +1,33 @@
 <section>
 	<div class="cards transacations-list">
-		<article class="card-coin">
-			<div class="card-coin__logo">
-				<span> one@example.com </span>
-				<span class="card-coin__date"> 07/09/2022 </span>
-			</div>
-			<div>
-				<span class="material-icons text-green"> trending_up </span>
-			</div>
-			<div class="card-coin__price-plus">
-				<strong>$100.00</strong>
-			</div>
-		</article>
-		<article class="card-coin">
-			<div class="card-coin__logo">
-				<span> two@example.com </span>
-				<span class="card-coin__date"> 07/09/2022 </span>
-			</div>
-			<div>
-				<span class="material-icons text-red"> trending_down </span>
-			</div>
-			<div class="card-coin__price-minus">
-				<strong>-$200.00</strong>
-			</div>
-		</article>
+		<ng-container *ngIf="transactions$ | async as transactions">
+			<article class="card-coin" *ngFor="let transaction of transactions">
+				<div class="card-coin__logo">
+					<span> {{ transaction.account }} </span>
+					<span class="card-coin__date">
+						{{ transaction.createdAt }}
+					</span>
+				</div>
+				<div>
+					<span
+						class="material-icons"
+						[class.text-green]="transaction.incoming"
+						[class.text-red]="!transaction.incoming"
+					>
+						{{
+							transaction.incoming
+								? 'trending_up'
+								: 'trending_down'
+						}}
+					</span>
+				</div>
+				<div
+					[class.card-coin__price-plus]="transaction.incoming"
+					[class.card-coin__price-minus]="!transaction.incoming"
+				>
+					<strong>{{ transaction.amount }}</strong>
+				</div>
+			</article>
+		</ng-container>
 	</div>
 </section>
