@@ -13,7 +13,7 @@ import { WalletService } from 'src/app/services/wallet.service';
 })
 export class TransanctionsListComponent implements OnInit {
   
-  transactions$: Observable<ITransaction[]> | null = null;
+  transactions$!: Observable<ITransaction[]>;
 
   constructor(private walletService: WalletService) { }
 

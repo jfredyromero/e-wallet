@@ -1,24 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
-@import './abstracts/mixins';
-@import './abstracts/variables';
-@import './abstracts/utilities';
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+@import 'abstracts/utilities';
 
-@import './base/animations';
-@import './base/base';
-@import './base/reset';
-@import './base/typography';
+@import 'base/animations';
+@import 'base/base';
+@import 'base/reset';
+@import 'base/typography';
 
-@import './components/back-button';
-@import './components/button';
-// @import './components/card';
-// @import './components/form';
+@import 'components/back-button';
+@import 'components/button';
+// @import 'components/card';
+// @import 'components/form';
 
-// @import './layout/footer';
-// @import './layout/navbar';
+// @import 'layout/footer';
+// @import 'layout/navbar';
 
-// @import './pages/add';
-// @import './pages/home';
-// @import './pages/not-found';
-// @import './pages/wallet';
+// @import 'pages/add';
+// @import 'pages/home';
+// @import 'pages/not-found';
+// @import 'pages/wallet';
 
-@import './vendors/materialize';
+@import 'vendors/materialize';
