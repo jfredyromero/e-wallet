@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionsAddComponent implements OnInit {
 
+  showCreditCardOptions = false;
+  showPapPalOptions = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+  
+  onClickCreditCard(): void {
+    this.showCreditCardOptions = !this.showCreditCardOptions;
+  }
 
+  onClickPaypal(): void {
+    this.showPapPalOptions = !this.showPapPalOptions;
+  }
 }
