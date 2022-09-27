@@ -9,13 +9,20 @@ const routes: Routes = [
 				(m) => m.TransactionsListModule
 			),
 	},
-	// {
-	// 	path: ':id',
-	// 	loadChildren: () =>
-	// 		import('../client-detail/client-detail.module').then(
-	// 			(m) => m.ClientDetailPageModule
-	// 		),
-	// },
+	{
+		path: 'add',
+		loadChildren: () =>
+			import('./transactions-add/transactions-add.module').then(
+				(m) => m.TransactionsAddModule
+			),
+	},
+	{
+		path: 'give',
+		loadChildren: () =>
+			import('./transactions-give/transactions-give.module').then(
+				(m) => m.TransactionsGiveModule
+			),
+	},
 ];
 
 @NgModule({
