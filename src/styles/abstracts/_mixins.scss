@@ -1,0 +1,23 @@
+/// Gestor Responsive
+/// @access public
+/// @param {String} $size - Punto de ruptura
+/// @requires $breakpoints
+@mixin breakpoint($size) {
+	$raw-query: map-get($breakpoints, $size);
+	@if $raw-query {
+		$query: if(
+			type-of($raw-query) == 'string',
+			unquote($raw-query),
+			inspect($raw-query)
+		);
+		@media #{$query} {
+			@content;
+		}
+	} @else {
+		@error 'No se ha encontrado un valor para `#{$size}`. '
+		   + 'Por favor, asegúrate que está definido en el mapa `$breakpoints`.';
+	}
+}
+@mixin shadow {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
