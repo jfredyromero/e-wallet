@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ITransaction } from 'src/app/models/transaction.model';
-import { WalletService } from 'src/app/services/wallet.service';
+import { ITransaction } from 'src/app/core/models/transaction.model';
+import { WalletService } from 'src/app/core/services/wallet.service';
 
 @Component({
   selector: 'app-transanctions-list',
