@@ -10,7 +10,7 @@ import { TransactionsAddRoutingModule } from './transactions-add-routing.module'
   ],
   imports: [
     CommonModule,
-    TransactionsAddRoutingModule
+    TransactionsAddRoutingModule,
   ]
 })
 export class TransactionsAddModule { }
