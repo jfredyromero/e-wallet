@@ -1,0 +1,82 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.account {
+	&-info {
+		width: 100%;
+		padding: 100px 0;
+		text-align: center;
+		position: relative;
+		background: linear-gradient(60deg,
+				$gradient-color-1 0%,
+				$gradient-color-2 100%);
+
+		&__title {
+			font-size: 1rem;
+			letter-spacing: 2px;
+			padding-bottom: 5px;
+		}
+
+		&__total {
+			font-size: 3.6rem;
+			letter-spacing: -1px;
+		}
+
+		&__stats {
+			padding-top: 5px;
+			font-size: 1.3rem;
+
+			&--plus {
+				color: $text-secundary-color;
+				padding: 0 5px;
+			}
+		}
+
+		&__svg {
+			width: 100%;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			z-index: 1;
+			height: 2vw;
+		}
+	}
+
+	&-buttons {
+		width: 100%;
+		position: relative;
+		top: -25px;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&__button {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 16vw;
+			height: 16vw;
+			background-color: $bg-secundary-color;
+			color: $text-secundary-color;
+			text-align: center;
+			border-radius: 100%;
+			font-size: 1rem;
+			letter-spacing: 0.5px;
+			margin: 0 10px;
+			font-weight: 600;
+			@include shadow;
+
+			@include breakpoint(sm) {
+				width: 5rem;
+				height: 5rem;
+			}
+		}
+
+		&__icon {
+			color: $text-main-color;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
