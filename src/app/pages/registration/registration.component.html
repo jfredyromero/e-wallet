@@ -1,77 +1,76 @@
 <!DOCTYPE html>
-<div class="login">
-	<div class="login__content container">
-		<h2 class="login__title">Registration</h2>
-		<div class="login-form">
+<div class="registration">
+	<div class="registration__content">
+		<h2 class="registration__title">Registration</h2>
+		<div class="registration-form">
 			<form
-				id="login-form"
+				id="registration-form"
 				method="post"
 				action="main.html"
 				novalidate="novalidate"
 			>
-				<div class="login-form__row">
-					<label class="login-form__label">Full name</label>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Full name</label>
 					<input
 						type="text"
 						name="fullname"
 						value=""
-						class="login-form__input required"
+						class="registration-form__input required"
 					/>
 				</div>
-				<div class="login-form__row">
-					<label class="login-form__label">Username</label>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Username</label>
 					<input
 						type="text"
 						name="username"
 						value=""
-						class="login-form__input required"
+						class="registration-form__input required"
 					/>
 				</div>
-				<div class="login-form__row">
-					<label class="login-form__label">Email</label>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Email</label>
 					<input
 						type="email"
 						name="email"
 						value=""
-						class="login-form__input required"
+						class="registration-form__input required"
 					/>
 				</div>
-				<div class="login-form__row">
-					<label class="login-form__label">Password</label>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Password</label>
 					<input
 						type="password"
 						name="password"
 						value=""
-						class="login-form__input required"
+						class="registration-form__input required"
 					/>
 				</div>
-				<div class="login-form__row">
-					<label class="login-form__label">Confirm password</label>
+				<div class="registration-form__row">
+					<label class="registration-form__label"
+						>Confirm password</label
+					>
 					<input
 						type="password"
 						name="confirm-password"
 						value=""
-						class="login-form__input required"
+						class="registration-form__input required"
 					/>
 				</div>
-				<div class="login-form__forgot-pass">
-					<a href="forgot-password.html">Forgot Password?</a>
-				</div>
-				<div class="login-form__row">
+				<div class="registration-form__row">
 					<input
 						type="submit"
 						name="submit"
-						class="login-form__submit button button--main button--full"
+						class="registration-form__submit button button--main button--full"
 						id="submit"
-						value="SIGN IN"
+						value="SIGN UP"
 					/>
 				</div>
 			</form>
 
-			<div class="login-form__bottom">
+			<div class="registration-form__bottom">
 				<p>
-					Don't have an account? <br />
-					<a href="signup.html">SIGNUP NOW!</a>
+					Already have an account? <br />
+					<a [routerLink]="['/login']">SIGN IN HERE!</a>
 				</p>
 			</div>
 		</div>

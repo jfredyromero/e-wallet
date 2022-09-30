@@ -2,17 +2,12 @@
 	<div class="login__content container">
 		<h2 class="login__title">Login</h2>
 		<div class="login-form">
-			<form
-				id="login-form"
-				method="post"
-				action="main.html"
-				novalidate="novalidate"
-			>
+			<form id="login-form" (ngSubmit)="login()">
 				<div class="login-form__row">
 					<label class="login-form__label">Username</label>
 					<input
 						type="text"
-						name="Username"
+						name="username"
 						value=""
 						class="login-form__input required"
 					/>
@@ -43,7 +38,7 @@
 			<div class="login-form__bottom">
 				<p>
 					Don't have an account? <br />
-					<a href="signup.html">SIGN UP NOW!</a>
+					<a [routerLink]="['/registration']">SIGN UP HERE!</a>
 				</p>
 			</div>
 		</div>
