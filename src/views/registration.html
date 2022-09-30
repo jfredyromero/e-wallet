@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <div class="login">
-	<div class="login__content">
+	<div class="login__content container">
 		<h2 class="login__title">Registration</h2>
 		<div class="login-form">
 			<form
@@ -10,10 +10,28 @@
 				novalidate="novalidate"
 			>
 				<div class="login-form__row">
+					<label class="login-form__label">Full name</label>
+					<input
+						type="text"
+						name="fullname"
+						value=""
+						class="login-form__input required"
+					/>
+				</div>
+				<div class="login-form__row">
 					<label class="login-form__label">Username</label>
 					<input
 						type="text"
-						name="Username"
+						name="username"
+						value=""
+						class="login-form__input required"
+					/>
+				</div>
+				<div class="login-form__row">
+					<label class="login-form__label">Email</label>
+					<input
+						type="email"
+						name="email"
 						value=""
 						class="login-form__input required"
 					/>
@@ -23,6 +41,15 @@
 					<input
 						type="password"
 						name="password"
+						value=""
+						class="login-form__input required"
+					/>
+				</div>
+				<div class="login-form__row">
+					<label class="login-form__label">Confirm password</label>
+					<input
+						type="password"
+						name="confirm-password"
 						value=""
 						class="login-form__input required"
 					/>

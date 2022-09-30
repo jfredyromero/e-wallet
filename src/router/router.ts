@@ -35,6 +35,10 @@ const router = (route: string): void => {
 			content!.appendChild(controllers.signup());
 			break;
 	}
+	case '#/registration': {
+			content!.appendChild(controllers.registration());
+			break;
+	}
 	default: {
 			content!.appendChild(controllers.notFound());
 			break;
