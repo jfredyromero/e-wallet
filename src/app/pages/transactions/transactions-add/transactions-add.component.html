@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <div class="main">
-	<a class="back-button" routerLink="/">
+	<a
+		class="back-button"
+		routerLink="/"
+		[state]="{ accessToken: accessToken }"
+	>
 		<i class="material-icons back-button__icon">arrow_back</i>
 	</a>
 	<h2>Add cash</h2>
@@ -26,10 +30,20 @@
 	<h2>Select payment</h2>
 	<div class="container">
 		<div class="radio-option radio-option--full">
-			<input type="radio" name="payment" id="op5" value="creditcard" (click)="onClickCreditCard()"/>
+			<input
+				type="radio"
+				name="payment"
+				id="op5"
+				value="creditcard"
+				(click)="onClickCreditCard()"
+			/>
 			<label for="op5">Credit Card</label>
 		</div>
-		<div class="option-hidden" [class.show]="showCreditCardOptions" id="show-credit-cards">
+		<div
+			class="option-hidden"
+			[class.show]="showCreditCardOptions"
+			id="show-credit-cards"
+		>
 			<h4 class="pb-10">Existing Credit Cards</h4>
 			<div class="sub-container">
 				<div class="card-selector">
@@ -94,10 +108,20 @@
 			</div>
 		</div>
 		<div class="radio-option radio-option--full">
-			<input type="radio" name="payment" id="op4" value="paypal" (click)="onClickPaypal()" />
+			<input
+				type="radio"
+				name="payment"
+				id="op4"
+				value="paypal"
+				(click)="onClickPaypal()"
+			/>
 			<label for="op4">Paypal</label>
 		</div>
-		<div class="option-hidden" [class.show]="showPapPalOptions" id="show-paypal-info">
+		<div
+			class="option-hidden"
+			[class.show]="showPapPalOptions"
+			id="show-paypal-info"
+		>
 			You will be redirected to paypal account to make the payment.
 		</div>
 	</div>

@@ -1,5 +1,9 @@
 <div class="main">
-	<a class="back-button" routerLink="/">
+	<a
+		class="back-button"
+		routerLink="/"
+		[state]="{ accessToken: accessToken }"
+	>
 		<i class="material-icons back-button__icon">arrow_back</i>
 	</a>
 	<h2>Give cash</h2>

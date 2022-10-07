@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { IAuthRequest } from 'src/app/core/models/authRequest.model';
+import { IAuthResponse } from 'src/app/core/models/authResponse.model';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
 	selector: 'app-login',
@@ -6,14 +11,37 @@ import { Component } from '@angular/core';
 	styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-	username: any;
-	password: string;
-	constructor() {
-		this.username = '';
-		this.password = '';
+	user: IAuthRequest;
+	error: string;
+	accessToken: string | null;
+	constructor(private authService: AuthService, private router: Router) {
+		this.user = {
+			email: '',
+			password: '',
+		};
+		this.error = '';
+		this.accessToken =
+			this.router.getCurrentNavigation()?.extras.state?.['accessToken'];
 	}
 	login(): void {
-		console.log(this.username);
-		console.log(this.password);
+		this.error = '';
+		if (this.user.email !== '' && this.user.password !== '') {
+			this.authService.login(this.user).subscribe(
+				(response: IAuthResponse) => {
+					sessionStorage.setItem(
+						'accessToken',
+						JSON.stringify(response.accessToken)
+					);
+					this.router.navigate(['/'], {
+						state: { accessToken: response.accessToken },
+					});
+				},
+				(error: HttpErrorResponse) => {
+					this.error = error.error;
+				}
+			);
+		} else {
+			this.error = 'Por favor llena todos los campos!';
+		}
 	}
 }
