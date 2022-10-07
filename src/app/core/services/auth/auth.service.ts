@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Endpoints } from '../../enums/endpoints.enum';
 import { environment } from '../../../../environments/environment';
-import { IAuthRequest } from '../../models/authRequest.model';
-import { IAuthResponse } from '../../models/authResponse.model';
+import { IAuthRequest } from '../../models/auth-request.model';
+import { IAuthResponse } from '../../models/auth-response.model';
 
 @Injectable({
 	providedIn: 'root',

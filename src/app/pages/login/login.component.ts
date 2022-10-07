@@ -1,8 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IAuthRequest } from 'src/app/core/models/authRequest.model';
-import { IAuthResponse } from 'src/app/core/models/authResponse.model';
+import { IAuthRequest } from 'src/app/core/models/auth-request.model';
+import { IAuthResponse } from 'src/app/core/models/auth-response.model';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
