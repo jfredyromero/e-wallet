@@ -1,0 +1,48 @@
+@import 'abstracts/variables';
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-coin {
+    width: calc(100% - 30px);
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #291f57;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    color: #fff;
+    max-width: 600px;
+
+    &__logo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__date {
+        font-size: small;
+        font-weight: 300;
+    }
+
+    &__price-plus {
+        color: $text-secundary-color;
+
+    }
+
+    &__price-minus {
+        color: $text-danger;
+    }
+}
+
+.text-green {
+    color: $text-secundary-color;
+}
+
+.text-red {
+    color: $text-danger;
+}

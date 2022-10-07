@@ -1,0 +1,37 @@
+html {
+	font-family: $sans-font;
+}
+
+body {
+	color: $text-main-color;
+	background-color: $bg-main-color;
+}
+
+main {
+	margin: 0;
+
+	.main {
+		margin: 0 5%;
+	}
+}
+
+.page__title-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 20px;
+	max-width: 600px;
+	margin: auto;
+	width: calc(100% - 30px);
+
+	& p {
+		font-size: 1.4rem;
+		padding: 0px;
+	}
+
+	&-right {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+}

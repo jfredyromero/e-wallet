@@ -1,0 +1,50 @@
+<div class="login">
+	<div class="login__content container">
+		<h2 class="login__title">Login</h2>
+		<div class="login-form">
+			<form id="login-form" (ngSubmit)="login()">
+				<div class="login-form__row">
+					<label class="login-form__label">Username</label>
+					<input
+						[(ngModel)]="user.email"
+						type="text"
+						name="username"
+						value=""
+						class="login-form__input required"
+					/>
+				</div>
+				<div class="login-form__row">
+					<label class="login-form__label">Password</label>
+					<input
+						[(ngModel)]="user.password"
+						type="password"
+						name="password"
+						value=""
+						class="login-form__input required"
+					/>
+				</div>
+				<div class="login-form__forgot-pass">
+					<a href="forgot-password.html">Forgot Password?</a>
+				</div>
+				<div *ngIf="error" class="login-form__error">
+					<p>ERROR: {{ error }}</p>
+				</div>
+				<div class="login-form__row">
+					<input
+						type="submit"
+						name="submit"
+						class="login-form__submit button button--main button--full"
+						id="submit"
+						value="SIGN IN"
+					/>
+				</div>
+			</form>
+			<div class="login-form__bottom">
+				<p>
+					Don't have an account? <br />
+					<a [routerLink]="['/registration']">SIGN UP HERE!</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

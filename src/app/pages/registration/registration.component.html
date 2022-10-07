@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<div class="registration">
+	<div class="registration__content">
+		<h2 class="registration__title">Registration</h2>
+		<div class="registration-form">
+			<form
+				id="registration-form"
+				method="post"
+				action="main.html"
+				novalidate="novalidate"
+			>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Full name</label>
+					<input
+						type="text"
+						name="fullname"
+						value=""
+						class="registration-form__input required"
+					/>
+				</div>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Username</label>
+					<input
+						type="text"
+						name="username"
+						value=""
+						class="registration-form__input required"
+					/>
+				</div>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Email</label>
+					<input
+						type="email"
+						name="email"
+						value=""
+						class="registration-form__input required"
+					/>
+				</div>
+				<div class="registration-form__row">
+					<label class="registration-form__label">Password</label>
+					<input
+						type="password"
+						name="password"
+						value=""
+						class="registration-form__input required"
+					/>
+				</div>
+				<div class="registration-form__row">
+					<label class="registration-form__label"
+						>Confirm password</label
+					>
+					<input
+						type="password"
+						name="confirm-password"
+						value=""
+						class="registration-form__input required"
+					/>
+				</div>
+				<div class="registration-form__row">
+					<input
+						type="submit"
+						name="submit"
+						class="registration-form__submit button button--main button--full"
+						id="submit"
+						value="SIGN UP"
+					/>
+				</div>
+			</form>
+
+			<div class="registration-form__bottom">
+				<p>
+					Already have an account? <br />
+					<a [routerLink]="['/login']">SIGN IN HERE!</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
