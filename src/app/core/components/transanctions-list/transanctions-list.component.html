@@ -3,7 +3,7 @@
 		<ng-container *ngIf="transactions$ | async as transactions">
 			<article class="card-coin" *ngFor="let transaction of transactions">
 				<div class="card-coin__logo">
-					<span> {{ transaction.reciver.email }} </span>
+					<span> {{ transaction | transactionOrigin }} </span>
 					<span class="card-coin__date">
 						{{ transaction.createdAt | date }}
 					</span>

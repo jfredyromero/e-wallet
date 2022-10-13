@@ -28,6 +28,7 @@ export class TransactionsGiveComponent implements OnInit {
 		private formBuilder: FormBuilder
 	) {
 		this.currentUser = this.authService.currentUserValue;
+		this.initForm();
 	}
 
 	ngOnInit(): void {
