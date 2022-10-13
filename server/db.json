@@ -43,7 +43,7 @@
         "id": 1,
         "email": "test@example.com"
       },
-      "amount": 100,
+      "amount": 200,
       "createdAt": "2022-10-13T01:31:57.337Z"
     }
   ]

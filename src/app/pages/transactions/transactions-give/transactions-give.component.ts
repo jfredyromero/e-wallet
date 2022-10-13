@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { ITransactionRequest } from 'src/app/core/models/transaction.model';
+import { ITransactionRequest } from 'src/app/core/models/transaction-request.model';
 import { IUser } from 'src/app/core/models/user.model';
 import { UserService } from 'src/app/core/services/user.service';
 import { WalletService } from 'src/app/core/services/wallet.service';

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ITransaction } from 'src/app/core/models/transaction.model';
+import { ITransactionResponse } from 'src/app/core/models/transaction-response.model';
 import { WalletService } from 'src/app/core/services/wallet.service';
 
 @Component({
@@ -13,11 +13,19 @@ import { WalletService } from 'src/app/core/services/wallet.service';
 })
 export class TransanctionsListComponent implements OnInit {
   
-  transactions$!: Observable<ITransaction[]>;
+  transactions$!: Observable<ITransactionResponse[]>;
 
   constructor(private walletService: WalletService) { }
 
   ngOnInit(): void {
     this.transactions$ = this.walletService.getAllTransactions();
+  }
+
+  isIncoming(transaction: ITransactionResponse): boolean {
+    if (transaction.sender.id === transaction.reciver.id) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

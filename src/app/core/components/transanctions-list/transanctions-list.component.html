@@ -3,27 +3,27 @@
 		<ng-container *ngIf="transactions$ | async as transactions">
 			<article class="card-coin" *ngFor="let transaction of transactions">
 				<div class="card-coin__logo">
-					<span> {{ transaction.account }} </span>
+					<span> {{ transaction.sender.email }} </span>
 					<span class="card-coin__date">
-						{{ transaction.createdAt }}
+						{{ transaction.createdAt | date }}
 					</span>
 				</div>
 				<div>
 					<span
 						class="material-icons"
-						[class.text-green]="transaction.incoming"
-						[class.text-red]="!transaction.incoming"
+						[class.text-green]="isIncoming(transaction)"
+						[class.text-red]="!isIncoming(transaction)"
 					>
 						{{
-							transaction.incoming
+							isIncoming(transaction)
 								? 'trending_up'
 								: 'trending_down'
 						}}
 					</span>
 				</div>
 				<div
-					[class.card-coin__price-plus]="transaction.incoming"
-					[class.card-coin__price-minus]="!transaction.incoming"
+					[class.card-coin__price-plus]="isIncoming(transaction)"
+					[class.card-coin__price-minus]="!isIncoming(transaction)"
 				>
 					<strong>{{ transaction.amount }}</strong>
 				</div>

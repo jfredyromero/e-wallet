@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ITransactionRequest } from 'src/app/core/models/transaction.model';
+import { ITransactionRequest } from 'src/app/core/models/transaction-request.model';
 import { WalletService } from 'src/app/core/services/wallet.service';
 
 @Component({
