@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TransanctionsListComponent } from './transanctions-list.component';
@@ -8,7 +9,7 @@ describe('TransanctionsListComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [TransanctionsListComponent],
+			imports: [TransanctionsListComponent, HttpClientModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(TransanctionsListComponent);

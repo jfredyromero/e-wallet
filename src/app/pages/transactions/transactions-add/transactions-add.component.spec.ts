@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { TransactionsAddComponent } from './transactions-add.component';
 
@@ -8,7 +10,8 @@ describe('TransactionsAddComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TransactionsAddComponent ]
+      declarations: [ TransactionsAddComponent ],
+      imports: [ReactiveFormsModule, HttpClientModule]
     })
     .compileComponents();
 

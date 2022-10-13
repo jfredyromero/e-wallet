@@ -8,21 +8,25 @@ import { AuthService } from '../services/auth/auth.service';
 	standalone: true,
 })
 export class TransactionOriginPipe implements PipeTransform {
-	user: IUser | null;
+	// user: IUser | null;
 
-	constructor(private authService: AuthService) {
-		this.user = this.authService.currentUserValue;
-	}
+	// constructor(private authService: AuthService) {
+	// 	this.user = this.authService.currentUserValue;
+	// }
 
-	transform(transaction: ITransactionResponse, ...args: unknown[]): unknown {
+	transform(
+		transaction: ITransactionResponse,
+		user: IUser | null,
+		...args: unknown[]
+	): unknown {
 		if (
-			this.user?.id === transaction.reciver.id &&
-			transaction.sender.id === this.user?.id
+			user?.id === transaction.reciver.id &&
+			transaction.sender.id === user?.id
 		) {
 			return 'Recharge';
 		} else if (
-			this.user?.id === transaction.sender.id &&
-			transaction.reciver.id !== this.user?.id
+			user?.id === transaction.sender.id &&
+			transaction.reciver.id !== user?.id
 		) {
 			return `Give to: ${transaction.reciver.email}`;
 		} else {
@@ -30,19 +34,3 @@ export class TransactionOriginPipe implements PipeTransform {
 		}
 	}
 }
-
-// displayOrigin(transaction: ITransactionResponse): any {
-//   if (
-//     this.user?.id === transaction.reciver.id &&
-//     transaction.sender.id === this.user?.id
-//   ) {
-//     return 'Recharge:';
-//   } else if (
-//     this.user?.id === transaction.sender.id &&
-//     transaction.reciver.id !== this.user?.id
-//   ) {
-//     return 'Give to:'
-//   } else {
-//     return 'From:'
-//   }
-// }
