@@ -96,6 +96,63 @@ server.get('/transactions', (req, res) => {
 	res.status(200).json(transactionsResponse);
 });
 
+server.get('/transactions/balance', (req, res) => {
+	let transactions = db.get('transactions').value() || [];
+	const authHeader = req.headers['authorization'];
+	const token = authHeader && authHeader.split(' ')[1];
+
+	if (token == null) return res.sendStatus(401);
+
+	const { sub: userId, email } = jwt.decode(token);
+
+	console.log({ id: userId, email });
+
+	const user = db
+		.get('users')
+		.find({ id: parseInt(userId) })
+		.value();
+
+	transactions = transactions.filter((transaction) => {
+		if (
+			transaction.reciver.id === parseInt(userId) ||
+			transaction.sender.id === parseInt(userId)
+		) {
+			return transaction;
+		}
+	});
+
+	const incoming = transactions
+		.filter((transaction) => {
+			if (transaction.reciver.id === parseInt(userId)) {
+				return transaction;
+			}
+		})
+		.reduce((total, transaction) => {
+			return total + transaction.amount;
+		}, 0);
+
+	const outcoming = transactions
+		.filter((transaction) => {
+			if (
+				transaction.sender.id === parseInt(userId) &&
+				transaction.reciver.id !== parseInt(userId)
+			) {
+				return transaction;
+			}
+		})
+		.reduce((total, transaction) => {
+			return total + transaction.amount;
+		}, 0);
+
+	const balance = {
+		balance: user.budget,
+		incoming,
+		outcoming,
+	};
+
+	res.status(200).json(balance);
+});
+
 server.get('/users', (req, res) => {
 	const users = db.get('users').value() || [];
 	const authHeader = req.headers['authorization'];
