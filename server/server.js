@@ -53,9 +53,9 @@ server.post('/transactions', (req, res) => {
 		if (amount > senderUser.budget) {
 			console.log({ amount });
 			console.log({ senderBuget: senderUser.budget });
-			res.status(422).json([
-				{ message: 'Insufficient funds in your wallet.' },
-			]);
+			res.status(400).json({
+				message: 'Insufficient funds in your wallet.',
+			});
 			return;
 		}
 

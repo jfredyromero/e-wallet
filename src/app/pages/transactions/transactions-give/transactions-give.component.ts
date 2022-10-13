@@ -19,6 +19,7 @@ export class TransactionsGiveComponent implements OnInit {
 	form!: FormGroup;
 	loading = false;
 	submitted = false;
+	errorMessage: string = '';
 
 	constructor(
 		private router: Router,
@@ -77,7 +78,10 @@ export class TransactionsGiveComponent implements OnInit {
 				next: () => {
 					this.router.navigate(['/']);
 				},
-				error: (error) => console.error(error),
+				error: (error) => {
+					this.errorMessage = error.error.message;
+					console.error(error.error.message);
+				},
 			});
 		}
 	}
