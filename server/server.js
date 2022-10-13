@@ -36,8 +36,9 @@ server.post('/transactions', (req, res) => {
 		res.status(404).json({ message: 'Not found user' });
 	}
 
-	if (sender.id === reciver.id) {
-		reciverUser.budget += amount;
+	reciverUser.budget = reciverUser.budget ? (reciverUser.budget + amount) : amount;
+	if (sender.id !== reciver.id) {
+		senderUser.budget = senderUser.budget ? (senderUser.budget - amount) : amount;
 	}
 
 	console.log({ senderUser });

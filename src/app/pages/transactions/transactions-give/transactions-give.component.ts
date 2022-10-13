@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
+import { ITransactionRequest } from 'src/app/core/models/transaction.model';
 import { IUser } from 'src/app/core/models/user.model';
 import { UserService } from 'src/app/core/services/user.service';
+import { WalletService } from 'src/app/core/services/wallet.service';
 
 @Component({
 	selector: 'app-transactions-give',
@@ -21,6 +23,7 @@ export class TransactionsGiveComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private userService: UserService,
+		private walletService: WalletService,
 		private formBuilder: FormBuilder
 	) {
 		this.accessToken =
@@ -48,7 +51,7 @@ export class TransactionsGiveComponent implements OnInit {
 	initForm() {
 		this.form = this.formBuilder.group({
 			reciver: [null, Validators.required],
-			amount: [null, Validators.required],
+			amount: [null, [Validators.required, Validators.min(0.1)]],
 		});
 	}
 
@@ -60,9 +63,6 @@ export class TransactionsGiveComponent implements OnInit {
 	onSubmit() {
 		this.submitted = true;
 
-		// reset alerts on submit
-		// this.alertService.clear();
-
 		// stop here if form is invalid
 		if (this.form.invalid) {
 			return;
@@ -73,6 +73,20 @@ export class TransactionsGiveComponent implements OnInit {
 	}
 
 	createTransaction() {
-		console.log(this.form.value);
+		let transaction: ITransactionRequest;
+		const { amount, reciver } = this.form.value;
+
+		transaction = {
+			sender: { id: 1, email: 'test@example.com' },
+			reciver: { id: reciver.id, email: reciver.email },
+			amount,
+		};
+
+		this.walletService.createTransaction(transaction).subscribe({
+			next: () => {
+				this.router.navigate(['/']);
+			},
+			error: (error) => console.error(error),
+		});
 	}
 }
