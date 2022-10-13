@@ -76,6 +76,7 @@ export class TransactionsGiveComponent implements OnInit {
 		let transaction: ITransactionRequest;
 		const { amount, reciver } = this.form.value;
 
+		// TODO - Get sender from current session (User logged in)
 		transaction = {
 			sender: { id: 1, email: 'test@example.com' },
 			reciver: { id: reciver.id, email: reciver.email },
