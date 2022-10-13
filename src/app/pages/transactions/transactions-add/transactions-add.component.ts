@@ -79,12 +79,4 @@ export class TransactionsAddComponent implements OnInit {
 			});
 		}
 	}
-
-	// onClickCreditCard(): void {
-	// 	this.showCreditCardOptions = !this.showCreditCardOptions;
-	// }
-
-	// onClickPaypal(): void {
-	// 	this.showPapPalOptions = !this.showPapPalOptions;
-	// }
 }
