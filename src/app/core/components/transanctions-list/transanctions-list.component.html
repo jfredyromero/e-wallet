@@ -25,7 +25,7 @@
 					[class.card-coin__price-plus]="isIncoming(transaction)"
 					[class.card-coin__price-minus]="!isIncoming(transaction)"
 				>
-					<strong>{{ transaction.amount }}</strong>
+					<strong>{{ transaction.amount | currency }}</strong>
 				</div>
 			</article>
 		</ng-container>
