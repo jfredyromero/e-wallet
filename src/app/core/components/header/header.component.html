@@ -1,4 +1,11 @@
-<header>
-	<h1>E-Wallet - Fast and easy</h1>
-	<p>The best way to transfer money.</p>
+<header class="header">
+	<div class="header__title">
+		<h1>E-Wallet - Fast and easy</h1>
+		<p>The best way to transfer money.</p>
+	</div>
+	<div class="header__logout">
+		<button *ngIf="isLoggedIn" class="button button--main button--ex-small">
+			Logout
+		</button>
+	</div>
 </header>
