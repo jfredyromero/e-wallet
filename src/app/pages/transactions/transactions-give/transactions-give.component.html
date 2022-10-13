@@ -1,9 +1,5 @@
 <div class="main">
-	<a
-		class="back-button"
-		routerLink="/"
-		[state]="{ accessToken: accessToken }"
-	>
+	<a class="back-button" routerLink="/">
 		<i class="material-icons back-button__icon">arrow_back</i>
 	</a>
 	<form [formGroup]="form" (ngSubmit)="onSubmit()">

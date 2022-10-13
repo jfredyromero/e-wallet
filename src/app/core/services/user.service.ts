@@ -11,7 +11,6 @@ export class UserService {
 	constructor(private http: HttpClient) {}
 
 	getAll() {
-		// TODO - Remove current users logged in
 		return this.http.get<IUser[]>(environment.apiUrl + Endpoints.users);
 	}
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { ITransactionRequest } from 'src/app/core/models/transaction-request.model';
 import { IUser } from 'src/app/core/models/user.model';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { WalletService } from 'src/app/core/services/wallet.service';
 
@@ -13,8 +14,7 @@ import { WalletService } from 'src/app/core/services/wallet.service';
 	styleUrls: ['./transactions-give.component.scss'],
 })
 export class TransactionsGiveComponent implements OnInit {
-	credencial: string | null;
-	accessToken: string;
+	currentUser!: IUser | null;
 	$users!: Observable<IUser[]>;
 	form!: FormGroup;
 	loading = false;
@@ -23,28 +23,14 @@ export class TransactionsGiveComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private userService: UserService,
+		private authService: AuthService,
 		private walletService: WalletService,
 		private formBuilder: FormBuilder
 	) {
-		this.accessToken =
-			'"' +
-			this.router.getCurrentNavigation()?.extras.state?.['accessToken'] +
-			'"';
-		this.credencial = '';
-		this.initForm();
+		this.currentUser = this.authService.currentUserValue;
 	}
 
 	ngOnInit(): void {
-		// this.credencial = sessionStorage.getItem('accessToken');
-		// if (!this.credencial) {
-		// 	this.router.navigate(['/login'], {
-		// 		state: { accessToken: this.accessToken },
-		// 	});
-		// } else {
-		// 	if (this.accessToken !== this.credencial) {
-		// 		this.router.navigate(['/login']);
-		// 	}
-		// }
 		this.$users = this.userService.getAll();
 	}
 
@@ -76,18 +62,22 @@ export class TransactionsGiveComponent implements OnInit {
 		let transaction: ITransactionRequest;
 		const { amount, reciver } = this.form.value;
 
-		// TODO - Get sender from current session (User logged in)
-		transaction = {
-			sender: { id: 1, email: 'test@example.com' },
-			reciver: { id: reciver.id, email: reciver.email },
-			amount,
-		};
+		if (this.currentUser) {
+			transaction = {
+				sender: {
+					id: this.currentUser?.id,
+					email: this.currentUser?.email,
+				},
+				reciver: { id: reciver.id, email: reciver.email },
+				amount,
+			};
 
-		this.walletService.createTransaction(transaction).subscribe({
-			next: () => {
-				this.router.navigate(['/']);
-			},
-			error: (error) => console.error(error),
-		});
+			this.walletService.createTransaction(transaction).subscribe({
+				next: () => {
+					this.router.navigate(['/']);
+				},
+				error: (error) => console.error(error),
+			});
+		}
 	}
 }
