@@ -3,4 +3,5 @@ export enum Endpoints {
 	registration = 'signup/',
 	users = 'users/',
 	transactions = 'transactions/',
+	balance = 'transactions/balance'
 }

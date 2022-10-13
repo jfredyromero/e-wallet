@@ -35,4 +35,12 @@ export class TransanctionsListComponent implements OnInit {
 			return false;
 		}
 	}
+
+	// displayOrigin(transaction: ITransactionResponse): string {
+	// 	if (this.user?.id === transaction.reciver.id) {
+	// 		return transaction.sender.email;
+	// 	} else {
+	// 		return transaction.reciver.email;
+	// 	}
+	// }
 }

@@ -1,10 +1,17 @@
 <div class="account-info">
 	<div class="account-info__title">TOTAL BALANCE</div>
-	<div class="account-info__total">$1,400.00</div>
-	<div class="account-info__stats">
-		<span class="account-info__stats--plus">+$235</span>
-		| <span class="account-info__stats--plus">+12%</span>
-	</div>
+	<ng-container *ngIf="balance$ | async as balance">
+		<div class="account-info__total">{{ balance.balance | currency }}</div>
+		<div class="account-info__stats">
+			<span class="account-info__stats--plus"
+				>+{{ balance.incoming | currency }}</span
+			>
+			|
+			<span class="account-info__stats--plus text-red"
+				>-{{ balance.outcoming | currency }}</span
+			>
+		</div>
+	</ng-container>
 	<svg
 		class="account-info__svg"
 		xmlns="http://www.w3.org/2000/svg"
@@ -23,8 +30,4 @@
 		<i class="material-icons account-buttons__icon">arrow_upward</i>
 		<span>GIVE</span>
 	</a>
-	<!-- <a class="account-buttons__button" href="#">
-		<i class="material-icons account-buttons__icon">swap_horiz</i>
-		<span>SWAP</span>
-		</a> -->
 </div>

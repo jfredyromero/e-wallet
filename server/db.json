@@ -4,7 +4,7 @@
       "id": 1,
       "email": "test@example.com",
       "password": "$2a$10$c7boba6m.608rqSWPpZ4guLxAaNXpljNWBNAkkhj2bFQSHun8SmE.",
-      "budget": 6100
+      "budget": 5940
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "email": "third@example.com",
       "password": "$2a$10$XJlUUtM6zKLgagHWAzUWIOE6xuwfNw6v3soSTPw/utbyDMFZrgtji",
       "id": 3,
-      "budget": 300
+      "budget": 460
     }
   ],
   "transactions": [
@@ -97,6 +97,45 @@
       },
       "amount": 200,
       "createdAt": "2022-10-13T13:52:20.109Z"
+    },
+    {
+      "id": "238b0d3a-9565-4680-a447-2f4d082489e5",
+      "sender": {
+        "id": 1,
+        "email": "test@example.com"
+      },
+      "reciver": {
+        "id": 3,
+        "email": "third@example.com"
+      },
+      "amount": 50,
+      "createdAt": "2022-10-13T18:23:54.993Z"
+    },
+    {
+      "id": "2fac945c-19b9-40f8-9037-16884c19e4a3",
+      "sender": {
+        "id": 1,
+        "email": "test@example.com"
+      },
+      "reciver": {
+        "id": 3,
+        "email": "third@example.com"
+      },
+      "amount": 50,
+      "createdAt": "2022-10-13T18:24:15.352Z"
+    },
+    {
+      "id": "c4209bf5-328c-4d95-a562-68f0358a4b41",
+      "sender": {
+        "id": 1,
+        "email": "test@example.com"
+      },
+      "reciver": {
+        "id": 3,
+        "email": "third@example.com"
+      },
+      "amount": 60,
+      "createdAt": "2022-10-13T18:24:27.650Z"
     }
   ]
 }
