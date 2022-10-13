@@ -22,6 +22,10 @@ export class LoginComponent {
 		this.error = '';
 		// this.accessToken =
 		// 	this.router.getCurrentNavigation()?.extras.state?.['accessToken'];
+		// redirect to home if already logged in
+		if (this.authService.currentUserValue) {
+			this.router.navigate(['/']);
+		}
 	}
 	// login(): void {
 	// 	this.error = '';
