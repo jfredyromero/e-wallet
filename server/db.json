@@ -4,24 +4,24 @@
       "id": 1,
       "email": "test@example.com",
       "password": "$2a$10$c7boba6m.608rqSWPpZ4guLxAaNXpljNWBNAkkhj2bFQSHun8SmE.",
-      "budget": 6123
+      "budget": 5500
     },
     {
       "id": 2,
       "email": "second@example.com",
       "password": "$2a$10$v4/w4ec6xHQ/XTxiCOS4D.RxNM18xWz93qO9.GNphnZ0orB/IUb0O",
-      "budget": 50
+      "budget": 0
     },
     {
       "email": "third@example.com",
       "password": "$2a$10$XJlUUtM6zKLgagHWAzUWIOE6xuwfNw6v3soSTPw/utbyDMFZrgtji",
       "id": 3,
-      "budget": 400
+      "budget": 0
     }
   ],
   "transactions": [
     {
-      "id": "c8814367-ac48-489e-a100-14b41d452ba8",
+      "id": "30425a47-9e54-4f12-bae4-c4450225f803",
       "sender": {
         "id": 1,
         "email": "test@example.com"
@@ -30,11 +30,11 @@
         "id": 1,
         "email": "test@example.com"
       },
-      "amount": 6000,
-      "createdAt": "2022-10-13T13:43:27.053Z"
+      "amount": 5000,
+      "createdAt": "2022-10-13T20:38:32.644Z"
     },
     {
-      "id": "37698a0a-cdd9-4134-aafb-856e2f3474fc",
+      "id": "c2bbec2a-a56f-467f-8648-51b793d6bf8e",
       "sender": {
         "id": 1,
         "email": "test@example.com"
@@ -43,125 +43,8 @@
         "id": 1,
         "email": "test@example.com"
       },
-      "amount": 250,
-      "createdAt": "2022-10-13T13:45:16.261Z"
-    },
-    {
-      "id": "7aa89329-72c2-41fd-bd09-89ec71c957d2",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 2,
-        "email": "second@example.com"
-      },
-      "amount": 50,
-      "createdAt": "2022-10-13T13:45:33.617Z"
-    },
-    {
-      "id": "c40e110e-43fd-4ff8-956e-7f858f0ab26a",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 3,
-        "email": "third@example.com"
-      },
-      "amount": 100,
-      "createdAt": "2022-10-13T13:46:47.037Z"
-    },
-    {
-      "id": "2e43a0e1-d19b-4077-908d-f894750a703d",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "amount": 200,
-      "createdAt": "2022-10-13T13:52:08.848Z"
-    },
-    {
-      "id": "f7b4fe1b-2bba-45c6-920c-50d0af58388e",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 3,
-        "email": "third@example.com"
-      },
-      "amount": 200,
-      "createdAt": "2022-10-13T13:52:20.109Z"
-    },
-    {
-      "id": "238b0d3a-9565-4680-a447-2f4d082489e5",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 3,
-        "email": "third@example.com"
-      },
-      "amount": 50,
-      "createdAt": "2022-10-13T18:23:54.993Z"
-    },
-    {
-      "id": "2fac945c-19b9-40f8-9037-16884c19e4a3",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 3,
-        "email": "third@example.com"
-      },
-      "amount": 50,
-      "createdAt": "2022-10-13T18:24:15.352Z"
-    },
-    {
-      "id": "c4209bf5-328c-4d95-a562-68f0358a4b41",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 3,
-        "email": "third@example.com"
-      },
-      "amount": 60,
-      "createdAt": "2022-10-13T18:24:27.650Z"
-    },
-    {
-      "id": "afd22c93-cdf4-480c-a941-8795944fd0e6",
-      "sender": {
-        "id": 3,
-        "email": "third@example.com"
-      },
-      "reciver": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "amount": 60,
-      "createdAt": "2022-10-13T19:39:31.322Z"
-    },
-    {
-      "id": "ef741719-67a5-4628-8143-ffcaa79f8efe",
-      "sender": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "reciver": {
-        "id": 1,
-        "email": "test@example.com"
-      },
-      "amount": 123,
-      "createdAt": "2022-10-13T19:58:21.986Z"
+      "amount": 500,
+      "createdAt": "2022-10-13T20:38:38.047Z"
     }
   ]
 }

@@ -5,7 +5,7 @@
 				<div class="card-coin__logo">
 					<span> {{ transaction | transactionOrigin }} </span>
 					<span class="card-coin__date">
-						{{ transaction.createdAt | date }}
+						{{ transaction.createdAt | date:'short' }}
 					</span>
 				</div>
 				<div>
