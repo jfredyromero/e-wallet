@@ -43,17 +43,19 @@ server.post('/transactions', (req, res) => {
 	console.log({ senderUser });
 	console.log({ reciverUser });
 
-	transactions.push({
+	const transaction = {
 		id: uuidv4(),
 		sender: sender,
 		reciver: reciver,
 		amount: amount,
 		createdAt: new Date(),
-	});
+	};
+
+	transactions.push(transaction);
 
 	db.write();
 
-	res.status(201).json({});
+	res.status(201).json(transaction);
 });
 
 server.use(auth);
