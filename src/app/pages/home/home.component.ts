@@ -17,15 +17,15 @@ export class HomeComponent implements OnInit {
 		this.credencial = '';
 	}
 	ngOnInit(): void {
-		this.credencial = sessionStorage.getItem('accessToken');
-		if (!this.credencial) {
-			this.router.navigate(['/login'], {
-				state: { accessToken: this.accessToken },
-			});
-		} else {
-			if (this.accessToken !== this.credencial) {
-				this.router.navigate(['/login']);
-			}
-		}
+		// this.credencial = sessionStorage.getItem('accessToken');
+		// if (!this.credencial) {
+		// 	this.router.navigate(['/login'], {
+		// 		state: { accessToken: this.accessToken },
+		// 	});
+		// } else {
+		// 	if (this.accessToken !== this.credencial) {
+		// 		this.router.navigate(['/login']);
+		// 	}
+		// }
 	}
 }

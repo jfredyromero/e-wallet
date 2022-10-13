@@ -8,26 +8,25 @@
 		<i class="material-icons back-button__icon">arrow_back</i>
 	</a>
 	<h2>Add cash</h2>
-	<div class="container">
-		<div class="form">
-			<form id="form" method="post" action="checkout.html">
+	<form id="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+		<div class="container">
+			<div class="form">
 				<div class="form__row form__row--justify-evenly">
 					<input
-						type="text"
-						name="Text"
-						value=""
+						formControlName="amount"
+						type="number"
+						min="0.1"
+						step="any"
 						class="form__input form__input--23"
-						placeholder="0.05"
 					/>
 					<div class="form__coin-icon">
 						<i class="material-icons">monetization_on</i>
 						<span>USD</span>
 					</div>
 				</div>
-			</form>
+			</div>
 		</div>
-	</div>
-	<h2>Select payment</h2>
+		<!-- <h2>Select payment</h2>
 	<div class="container">
 		<div class="radio-option radio-option--full">
 			<input
@@ -124,8 +123,12 @@
 		>
 			You will be redirected to paypal account to make the payment.
 		</div>
-	</div>
-	<a href="#/" class="button button--full button--main open-popup">
-		ADD CASH
-	</a>
+	</div> -->
+		<button
+			type="submit"
+			class="button button--full button--main open-popup"
+		>
+			ADD CASH
+		</button>
+	</form>
 </div>

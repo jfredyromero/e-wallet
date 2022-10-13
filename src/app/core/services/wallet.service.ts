@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ITransaction } from '../models/transaction.model';
+import { environment } from 'src/environments/environment';
+import { Endpoints } from '../enums/endpoints.enum';
+import { ITransaction, ITransactionRequest } from '../models/transaction.model';
 
 @Injectable({
 	providedIn: 'root',
@@ -50,9 +53,17 @@ export class WalletService {
 			createdAt: '07/09/2022',
 		},
 	];
-	constructor() {}
+
+	constructor(private http: HttpClient) {}
 
 	getAllTransactions(): Observable<ITransaction[]> {
 		return of(this.transactionsMock);
+	}
+
+	createTransaction(transaction: ITransactionRequest) {
+		return this.http.post<ITransactionRequest>(
+			`${environment.apiUrl}${Endpoints.transactions}`,
+			transaction
+		);
 	}
 }
