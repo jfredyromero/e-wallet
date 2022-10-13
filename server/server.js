@@ -84,14 +84,18 @@ server.get('/transactions', (req, res) => {
 
 	console.log({ id: userId, email });
 
-	const transactionsResponse = transactions.filter((transaction) => {
-		if (
-			transaction.reciver.id === parseInt(userId) ||
-			transaction.sender.id === parseInt(userId)
-		) {
-			return transaction;
-		}
-	});
+	const transactionsResponse = transactions
+		.filter((transaction) => {
+			if (
+				transaction.reciver.id === parseInt(userId) ||
+				transaction.sender.id === parseInt(userId)
+			) {
+				return transaction;
+			}
+		})
+		.sort(function (a, b) {
+			return new Date(b.createdAt) - new Date(a.createdAt);
+		});
 
 	res.status(200).json(transactionsResponse);
 });
