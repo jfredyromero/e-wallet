@@ -50,16 +50,6 @@ export class AuthService {
         localStorage.removeItem('currentUser');
         localStorage.removeItem('accessToken');
         this.currentUserSubject.next(null);
+		this.router.navigate(['/login']);
     }
-	
-
-	// login(user: IAuthRequest): Observable<IAuthResponse> {
-	// 	return this.http.post<IAuthResponse>(
-	// 		environment.apiUrl + Endpoints.login,
-	// 		user
-	// 	);
-	// }
-	// register(): Observable<any> {
-	// 	return this.http.get<any>(environment.apiUrl + Endpoints.registration);
-	// }
 }
