@@ -29,6 +29,14 @@
 						Amount is required.
 					</div>
 				</ng-container>
+				<ng-container *ngIf="submitted && f['amount'].errors">
+					<div
+						*ngIf="f['amount'].errors['min']"
+						class="text-red"
+					>
+						The amount must be greater than 0.1.
+					</div>
+				</ng-container>
 				<div *ngIf="errorMessage" class="text-red">
 					{{ errorMessage }}
 				</div>
