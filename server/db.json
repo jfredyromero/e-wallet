@@ -10,7 +10,7 @@
       "id": 2,
       "email": "second@example.com",
       "password": "$2a$10$v4/w4ec6xHQ/XTxiCOS4D.RxNM18xWz93qO9.GNphnZ0orB/IUb0O",
-      "budget": 6000
+      "budget": 6010
     },
     {
       "email": "third@example.com",
@@ -45,6 +45,19 @@
       },
       "amount": 200,
       "createdAt": "2022-10-13T01:31:57.337Z"
+    },
+    {
+      "id": "cf9d77a7-9742-4c1a-b6d6-95c0a9c8f1b4",
+      "sender": {
+        "id": 2,
+        "email": "second@example.com"
+      },
+      "reciver": {
+        "id": 2,
+        "email": "second@example.com"
+      },
+      "amount": 10,
+      "createdAt": "2022-10-13T03:00:45.888Z"
     }
   ]
 }

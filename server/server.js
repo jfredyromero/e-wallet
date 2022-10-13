@@ -1,4 +1,5 @@
 const path = require('path');
+const jwt = require('jsonwebtoken');
 const { v4: uuidv4 } = require('uuid');
 const jsonServer = require('json-server');
 const bodyParser = require('body-parser');
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const db = router.db;
+// const JWT_SECRET_KEY = 'json-server-auth-123456'
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
@@ -18,6 +20,14 @@ server.use(middlewares);
 server.db = router.db;
 
 server.get('/healthcheck', (req, res) => {
+	const authHeader = req.headers['authorization'];
+	const token = authHeader && authHeader.split(' ')[1];
+
+	if (token == null) return res.sendStatus(401);
+
+	const user = jwt.decode(token);
+	console.log({ id: user.sub, email: user.email });
+
 	res.status(200).json({ message: 'OK' });
 });
 
@@ -36,9 +46,13 @@ server.post('/transactions', (req, res) => {
 		res.status(404).json({ message: 'Not found user' });
 	}
 
-	reciverUser.budget = reciverUser.budget ? (reciverUser.budget + amount) : amount;
+	reciverUser.budget = reciverUser.budget
+		? reciverUser.budget + amount
+		: amount;
 	if (sender.id !== reciver.id) {
-		senderUser.budget = senderUser.budget ? (senderUser.budget - amount) : amount;
+		senderUser.budget = senderUser.budget
+			? senderUser.budget - amount
+			: amount;
 	}
 
 	console.log({ senderUser });
@@ -57,6 +71,49 @@ server.post('/transactions', (req, res) => {
 	db.write();
 
 	res.status(201).json(transaction);
+});
+
+server.get('/transactions', (req, res) => {
+	const transactions = db.get('transactions').value() || [];
+	const authHeader = req.headers['authorization'];
+	const token = authHeader && authHeader.split(' ')[1];
+
+	if (token == null) return res.sendStatus(401);
+
+	const { sub: userId, email } = jwt.decode(token);
+
+	console.log({ id: userId, email });
+
+	const transactionsResponse = transactions.filter((transaction) => {
+		if (
+			transaction.reciver.id === parseInt(userId) ||
+			transaction.sender.id === parseInt(userId)
+		) {
+			return transaction;
+		}
+	});
+
+	res.status(200).json(transactionsResponse);
+});
+
+server.get('/users', (req, res) => {
+	const users = db.get('users').value() || [];
+	const authHeader = req.headers['authorization'];
+	const token = authHeader && authHeader.split(' ')[1];
+
+	if (token == null) return res.sendStatus(401);
+
+	const { sub: userId, email } = jwt.decode(token);
+
+	console.log({ id: userId, email });
+
+	const usersResponse = users.filter((user) => {
+		if (user.id !== parseInt(userId)) {
+			return user;
+		}
+	});
+
+	res.status(200).json(usersResponse);
 });
 
 server.use(auth);
