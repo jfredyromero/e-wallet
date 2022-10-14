@@ -2,32 +2,55 @@
 	<div class="login__content container">
 		<h2 class="login__title">Login</h2>
 		<div class="login-form">
-			<form id="login-form" (ngSubmit)="login()">
+			<form id="login-form" [formGroup]="form" (ngSubmit)="login()">
 				<div class="login-form__row">
 					<label class="login-form__label">Username</label>
 					<input
-						[(ngModel)]="user.email"
+						formControlName="email"
 						type="text"
-						name="username"
 						value=""
 						class="login-form__input required"
+						[ngClass]="{
+							'is-invalid': submitted && f['email'].errors
+						}"
 					/>
 				</div>
+				<ng-container *ngIf="submitted && f['email'].errors">
+					<div
+						*ngIf="f['email'].errors['required']"
+						class="login-form__error"
+					>
+						Email is required.
+					</div>
+					<div
+						*ngIf="f['email'].errors['email']"
+						class="login-form__error"
+					>
+						Email is invalid.
+					</div>
+				</ng-container>
 				<div class="login-form__row">
 					<label class="login-form__label">Password</label>
 					<input
-						[(ngModel)]="user.password"
+						formControlName="password"
 						type="password"
-						name="password"
 						value=""
 						class="login-form__input required"
+						[ngClass]="{
+							'is-invalid': submitted && f['password'].errors
+						}"
 					/>
 				</div>
+				<ng-container *ngIf="submitted && f['password'].errors">
+					<div
+						*ngIf="f['password'].errors['required']"
+						class="login-form__error"
+					>
+						Password is required.
+					</div>
+				</ng-container>
 				<div class="login-form__forgot-pass">
 					<a href="forgot-password.html">Forgot Password?</a>
-				</div>
-				<div *ngIf="error" class="login-form__error">
-					<p>ERROR: {{ error }}</p>
 				</div>
 				<div class="login-form__row">
 					<input

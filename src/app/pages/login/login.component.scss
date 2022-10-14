@@ -51,8 +51,8 @@
 		}
 		&__error {
 			width: 100%;
-			text-align: center;
 			color: red;
+			margin-bottom: 1rem;
 		}
 		&__bottom {
 			width: 100%;
@@ -73,6 +73,7 @@
 			box-shadow: none;
 			-webkit-box-shadow: none;
 			-webkit-appearance: none;
+			appearance: none;
 		}
 	}
 }

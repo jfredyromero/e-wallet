@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAuthRequest } from 'src/app/core/models/auth-request.model';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -9,30 +10,45 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 	styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-	user: IAuthRequest;
-	error: string;
-	constructor(private authService: AuthService, private router: Router) {
-		this.user = {
-			email: '',
-			password: '',
-		};
-		this.error = '';
+	form!: FormGroup;
+	submitted: boolean;
+
+	constructor(
+		private authService: AuthService,
+		private router: Router,
+		private formBuilder: FormBuilder
+	) {
+		this.submitted = false;
 		if (this.authService.currentUserValue) {
 			this.router.navigate(['/']);
 		}
+		this.initForm();
 	}
+
+	initForm() {
+		this.form = this.formBuilder.group({
+			email: [null, [Validators.required, Validators.email]],
+			password: [null, Validators.required],
+		});
+	}
+
+	// convenience getter for easy access to form fields
+	get f() {
+		return this.form.controls;
+	}
+
 	login(): void {
-		this.error = '';
-		if (this.user.email !== '' && this.user.password !== '') {
-			this.authService.login(this.user).subscribe({
-				next: (response) => {
-					console.log(response);
-					this.router.navigate(['/']);
-				},
-				error: (error) => console.error(error),
-			});
-		} else {
-			this.error = 'Por favor llena todos los campos!';
+		this.submitted = true;
+		// stop here if form is invalid
+		if (this.form.invalid) {
+			return;
 		}
+		this.authService.login(this.form.value as IAuthRequest).subscribe({
+			next: (response) => {
+				console.log(response);
+				this.router.navigate(['/']);
+			},
+			error: (error) => console.error(error),
+		});
 	}
 }
