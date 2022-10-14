@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class LoginComponent {
 	form!: FormGroup;
 	submitted: boolean;
+	error: string;
 
 	constructor(
 		private authService: AuthService,
@@ -19,6 +20,7 @@ export class LoginComponent {
 		private formBuilder: FormBuilder
 	) {
 		this.submitted = false;
+		this.error = '';
 		if (this.authService.currentUserValue) {
 			this.router.navigate(['/']);
 		}
@@ -48,7 +50,9 @@ export class LoginComponent {
 				console.log(response);
 				this.router.navigate(['/']);
 			},
-			error: (error) => console.error(error),
+			error: (error) => {
+				this.error = error.error;
+			},
 		});
 	}
 }

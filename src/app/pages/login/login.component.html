@@ -52,6 +52,9 @@
 				<div class="login-form__forgot-pass">
 					<a href="forgot-password.html">Forgot Password?</a>
 				</div>
+				<div *ngIf="error" class="login-form__error">
+					<p>ERROR: {{ error }}</p>
+				</div>
 				<div class="login-form__row">
 					<input
 						type="submit"
