@@ -5,11 +5,10 @@
 		<div class="registration-form">
 			<form
 				id="registration-form"
-				method="post"
-				action="main.html"
-				novalidate="novalidate"
+				[formGroup]="form"
+				(ngSubmit)="registrate()"
 			>
-				<div class="registration-form__row">
+				<!-- <div class="registration-form__row">
 					<label class="registration-form__label">Full name</label>
 					<input
 						type="text"
@@ -17,17 +16,34 @@
 						value=""
 						class="registration-form__input required"
 					/>
-				</div>
+				</div> -->
 				<div class="registration-form__row">
 					<label class="registration-form__label">Username</label>
 					<input
+						formControlName="email"
 						type="text"
-						name="username"
 						value=""
 						class="registration-form__input required"
+						[ngClass]="{
+							'is-invalid': submitted && f['email'].errors
+						}"
 					/>
 				</div>
-				<div class="registration-form__row">
+				<ng-container *ngIf="submitted && f['email'].errors">
+					<div
+						*ngIf="f['email'].errors['required']"
+						class="registration-form__error"
+					>
+						Email is required.
+					</div>
+					<div
+						*ngIf="f['email'].errors['email']"
+						class="registration-form__error"
+					>
+						Email is invalid.
+					</div>
+				</ng-container>
+				<!-- <div class="registration-form__row">
 					<label class="registration-form__label">Email</label>
 					<input
 						type="email"
@@ -35,27 +51,50 @@
 						value=""
 						class="registration-form__input required"
 					/>
-				</div>
+				</div> -->
 				<div class="registration-form__row">
 					<label class="registration-form__label">Password</label>
 					<input
+						formControlName="password"
 						type="password"
-						name="password"
 						value=""
 						class="registration-form__input required"
+						[ngClass]="{
+							'is-invalid': submitted && f['password'].errors
+						}"
 					/>
 				</div>
+				<ng-container *ngIf="submitted && f['password'].errors">
+					<div
+						*ngIf="f['password'].errors['required']"
+						class="registration-form__error"
+					>
+						Password is required.
+					</div>
+				</ng-container>
 				<div class="registration-form__row">
 					<label class="registration-form__label"
 						>Confirm password</label
 					>
 					<input
+						formControlName="passwordConfirm"
 						type="password"
-						name="confirm-password"
 						value=""
 						class="registration-form__input required"
+						[ngClass]="{
+							'is-invalid':
+								submitted && f['passwordConfirm'].errors
+						}"
 					/>
 				</div>
+				<ng-container *ngIf="submitted && f['passwordConfirm'].errors">
+					<div
+						*ngIf="f['passwordConfirm'].errors['required']"
+						class="registration-form__error"
+					>
+						Password confirmation is required.
+					</div>
+				</ng-container>
 				<div class="registration-form__row">
 					<input
 						type="submit"
