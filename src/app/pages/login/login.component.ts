@@ -47,7 +47,6 @@ export class LoginComponent {
 		}
 		this.authService.login(this.form.value as IAuthRequest).subscribe({
 			next: (response) => {
-				console.log(response);
 				this.router.navigate(['/']);
 			},
 			error: (error) => {

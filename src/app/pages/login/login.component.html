@@ -4,10 +4,17 @@
 		<div class="login-form">
 			<form id="login-form" [formGroup]="form" (ngSubmit)="login()">
 				<div class="login-form__row">
-					<label class="login-form__label">Username</label>
+					<label
+						class="login-form__label"
+						[ngClass]="{
+							'login-form__error': submitted && f['email'].errors
+						}"
+						>Username</label
+					>
 					<input
 						formControlName="email"
 						type="text"
+						autocomplete="username"
 						value=""
 						class="login-form__input required"
 						[ngClass]="{
@@ -30,10 +37,18 @@
 					</div>
 				</ng-container>
 				<div class="login-form__row">
-					<label class="login-form__label">Password</label>
+					<label
+						class="login-form__label"
+						[ngClass]="{
+							'login-form__error':
+								submitted && f['password'].errors
+						}"
+						>Password</label
+					>
 					<input
 						formControlName="password"
 						type="password"
+						autocomplete="current-password"
 						value=""
 						class="login-form__input required"
 						[ngClass]="{

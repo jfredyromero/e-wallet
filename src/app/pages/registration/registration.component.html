@@ -8,20 +8,19 @@
 				[formGroup]="form"
 				(ngSubmit)="registrate()"
 			>
-				<!-- <div class="registration-form__row">
-					<label class="registration-form__label">Full name</label>
-					<input
-						type="text"
-						name="fullname"
-						value=""
-						class="registration-form__input required"
-					/>
-				</div> -->
 				<div class="registration-form__row">
-					<label class="registration-form__label">Username</label>
+					<label
+						class="registration-form__label"
+						[ngClass]="{
+							'registration-form__error':
+								submitted && f['email'].errors
+						}"
+						>Username</label
+					>
 					<input
 						formControlName="email"
 						type="text"
+						autocomplete="username"
 						value=""
 						class="registration-form__input required"
 						[ngClass]="{
@@ -43,20 +42,20 @@
 						Email is invalid.
 					</div>
 				</ng-container>
-				<!-- <div class="registration-form__row">
-					<label class="registration-form__label">Email</label>
-					<input
-						type="email"
-						name="email"
-						value=""
-						class="registration-form__input required"
-					/>
-				</div> -->
 				<div class="registration-form__row">
-					<label class="registration-form__label">Password</label>
+					<label
+						class="registration-form__label"
+						[ngClass]="{
+							'registration-form__error':
+								(submitted && f['password'].errors) ||
+								(submitted && form.errors)
+						}"
+						>Password</label
+					>
 					<input
 						formControlName="password"
 						type="password"
+						autocomplete="new-password"
 						value=""
 						class="registration-form__input required"
 						[ngClass]="{
@@ -73,12 +72,19 @@
 					</div>
 				</ng-container>
 				<div class="registration-form__row">
-					<label class="registration-form__label"
+					<label
+						class="registration-form__label"
+						[ngClass]="{
+							'registration-form__error':
+								(submitted && f['passwordConfirm'].errors) ||
+								(submitted && form.errors)
+						}"
 						>Confirm password</label
 					>
 					<input
 						formControlName="passwordConfirm"
 						type="password"
+						autocomplete="new-password"
 						value=""
 						class="registration-form__input required"
 						[ngClass]="{
@@ -93,6 +99,24 @@
 						class="registration-form__error"
 					>
 						Password confirmation is required.
+					</div>
+					<div
+						*ngIf="
+							f['passwordConfirm'].errors[
+								'invalidPasswordConfirmation'
+							]
+						"
+						class="registration-form__error"
+					>
+						Passwords don't match.
+					</div>
+				</ng-container>
+				<ng-container *ngIf="submitted && form.errors">
+					<div
+						*ngIf="form.errors['invalidPasswordConfirmation']"
+						class="registration-form__error"
+					>
+						Passwords don't match.
 					</div>
 				</ng-container>
 				<div class="registration-form__row">

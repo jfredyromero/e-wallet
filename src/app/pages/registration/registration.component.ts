@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+	AbstractControl,
+	FormBuilder,
+	FormGroup,
+	ValidationErrors,
+	ValidatorFn,
+	Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAuthRequest } from 'src/app/core/models/auth-request.model';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -28,24 +35,26 @@ export class RegistrationComponent {
 	}
 
 	initForm() {
-		this.form = this.formBuilder.group({
-			email: [null, [Validators.required, Validators.email]],
-			password: [null, Validators.required],
-			passwordConfirm: [null, Validators.required],
-		});
+		this.form = this.formBuilder.group(
+			{
+				email: [null, [Validators.required, Validators.email]],
+				password: [null, Validators.required],
+				passwordConfirm: [null, Validators.required],
+			},
+			{
+				validator: this.passwordMatchingValidator,
+			}
+		);
 	}
 
-	// passwordMatchingValidator(
-	// 	password: string,
-	// 	passwordConfirm: string
-	// ): ValidatorFn {
-	// 	return (control: AbstractControl): ValidationErrors | null => {
-	// 		const passwordMatching: boolean = password === passwordConfirm;
-	// 		return passwordMatching
-	// 			? { passwordMatching: { value: control.value } }
-	// 			: null;
-	// 	};
-	// }
+	passwordMatchingValidator: ValidatorFn = (
+		control: AbstractControl
+	): ValidationErrors | null => {
+		const passwordMatching: boolean =
+			control.get('password')?.value !==
+			control.get('passwordConfirm')?.value;
+		return passwordMatching ? { invalidPasswordConfirmation: true } : null;
+	};
 
 	// convenience getter for easy access to form fields
 	get f() {
@@ -64,7 +73,6 @@ export class RegistrationComponent {
 		};
 		this.userService.register(newUser).subscribe({
 			next: (response) => {
-				console.log(response);
 				this.router.navigate(['/login']);
 			},
 			error: (error) => console.error(error),
