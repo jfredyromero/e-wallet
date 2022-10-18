@@ -44,6 +44,9 @@
 			border-radius: 0px;
 			border-bottom: 1px rgba(255, 255, 255, 0.3) solid;
 			color: #fff;
+			&.is-invalid {
+				border-color: red;
+			}
 		}
 		&__forgot-pass {
 			width: 100%;
