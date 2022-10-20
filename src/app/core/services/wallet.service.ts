@@ -7,23 +7,23 @@ import { ITransactionRequest } from '../models/transaction-request.model';
 import { ITransactionResponse } from '../models/transaction-response.model';
 
 @Injectable({
-	providedIn: 'root',
+    providedIn: 'root',
 })
 export class WalletService {
-	constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-	getAllTransactions() {
-		return this.http.get<ITransactionResponse[]>(`${environment.apiUrl}${Endpoints.transactions}`);
-	}
+    getAllTransactions() {
+        return this.http.get<ITransactionResponse[]>(`${environment.apiUrl}${Endpoints.transactions}`);
+    }
 
-	getBalance() {
-		return this.http.get<IBalance>(`${environment.apiUrl}${Endpoints.balance}`);
-	}
+    getBalance() {
+        return this.http.get<IBalance>(`${environment.apiUrl}${Endpoints.balance}`);
+    }
 
-	createTransaction(transaction: ITransactionRequest) {
-		return this.http.post<ITransactionResponse>(
-			`${environment.apiUrl}${Endpoints.transactions}`,
-			transaction
-		);
-	}
+    createTransaction(transaction: ITransactionRequest) {
+        return this.http.post<ITransactionResponse>(
+            `${environment.apiUrl}${Endpoints.transactions}`,
+            transaction
+        );
+    }
 }

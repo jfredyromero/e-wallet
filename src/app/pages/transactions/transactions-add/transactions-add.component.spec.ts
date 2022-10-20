@@ -5,22 +5,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TransactionsAddComponent } from './transactions-add.component';
 
 describe('TransactionsAddComponent', () => {
-  let component: TransactionsAddComponent;
-  let fixture: ComponentFixture<TransactionsAddComponent>;
+    let component: TransactionsAddComponent;
+    let fixture: ComponentFixture<TransactionsAddComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ TransactionsAddComponent ],
-      imports: [ReactiveFormsModule, HttpClientModule]
-    })
-    .compileComponents();
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [ TransactionsAddComponent ],
+            imports: [ReactiveFormsModule, HttpClientModule]
+        })
+            .compileComponents();
 
-    fixture = TestBed.createComponent(TransactionsAddComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        fixture = TestBed.createComponent(TransactionsAddComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

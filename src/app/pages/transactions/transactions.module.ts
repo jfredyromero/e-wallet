@@ -5,13 +5,13 @@ import { TransactionsGiveComponent } from './transactions-give/transactions-give
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    TransactionsGiveComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    TransactionsRoutingModule
-  ]
+    declarations: [
+        TransactionsGiveComponent
+    ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        TransactionsRoutingModule
+    ]
 })
 export class TransactionsModule { }

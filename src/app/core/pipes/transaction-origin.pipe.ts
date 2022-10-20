@@ -4,33 +4,33 @@ import { IUser } from '../models/user.model';
 import { AuthService } from '../services/auth/auth.service';
 
 @Pipe({
-	name: 'transactionOrigin',
-	standalone: true,
+    name: 'transactionOrigin',
+    standalone: true,
 })
 export class TransactionOriginPipe implements PipeTransform {
-	// user: IUser | null;
+    // user: IUser | null;
 
-	// constructor(private authService: AuthService) {
-	// 	this.user = this.authService.currentUserValue;
-	// }
+    // constructor(private authService: AuthService) {
+    // 	this.user = this.authService.currentUserValue;
+    // }
 
-	transform(
-		transaction: ITransactionResponse,
-		user: IUser | null,
-		...args: unknown[]
-	): unknown {
-		if (
-			user?.id === transaction.reciver.id &&
+    transform(
+        transaction: ITransactionResponse,
+        user: IUser | null,
+        ...args: unknown[]
+    ): unknown {
+        if (
+            user?.id === transaction.reciver.id &&
 			transaction.sender.id === user?.id
-		) {
-			return 'Recharge';
-		} else if (
-			user?.id === transaction.sender.id &&
+        ) {
+            return 'Recharge';
+        } else if (
+            user?.id === transaction.sender.id &&
 			transaction.reciver.id !== user?.id
-		) {
-			return `Give to: ${transaction.reciver.email}`;
-		} else {
-			return `From: ${transaction.sender.email}`;
-		}
-	}
+        ) {
+            return `Give to: ${transaction.reciver.email}`;
+        } else {
+            return `From: ${transaction.sender.email}`;
+        }
+    }
 }

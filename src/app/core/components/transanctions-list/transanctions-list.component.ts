@@ -8,32 +8,32 @@ import { TransactionOriginPipe } from '../../pipes/transaction-origin.pipe';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-	selector: 'app-transanctions-list',
-	templateUrl: './transanctions-list.component.html',
-	styleUrls: ['./transanctions-list.component.scss'],
-	standalone: true,
-	imports: [CommonModule, TransactionOriginPipe],
+    selector: 'app-transanctions-list',
+    templateUrl: './transanctions-list.component.html',
+    styleUrls: ['./transanctions-list.component.scss'],
+    standalone: true,
+    imports: [CommonModule, TransactionOriginPipe],
 })
 export class TransanctionsListComponent implements OnInit {
-	transactions$!: Observable<ITransactionResponse[]>;
-	user: IUser | null;
+    transactions$!: Observable<ITransactionResponse[]>;
+    user: IUser | null;
 
-	constructor(
+    constructor(
 		private walletService: WalletService,
 		private authService: AuthService
-	) {
-		this.user = this.authService.currentUserValue;
-	}
+    ) {
+        this.user = this.authService.currentUserValue;
+    }
 
-	ngOnInit(): void {
-		this.transactions$ = this.walletService.getAllTransactions();
-	}
+    ngOnInit(): void {
+        this.transactions$ = this.walletService.getAllTransactions();
+    }
 
-	isIncoming(transaction: ITransactionResponse): boolean {
-		if (this.user?.id === transaction.reciver.id) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    isIncoming(transaction: ITransactionResponse): boolean {
+        if (this.user?.id === transaction.reciver.id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -8,18 +8,18 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { NotFoundComponent } from './core/components/not-found/not-found.component';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 @NgModule({
-	declarations: [AppComponent],
-	imports: [
-		BrowserModule,
-		HttpClientModule,
-		AppRoutingModule,
-		HeaderComponent,
-		FooterComponent,
-		NotFoundComponent,
-	],
-	providers: [
-		{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-	],
-	bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        HeaderComponent,
+        FooterComponent,
+        NotFoundComponent,
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

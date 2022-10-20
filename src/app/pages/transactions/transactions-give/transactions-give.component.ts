@@ -9,80 +9,80 @@ import { UserService } from 'src/app/core/services/user.service';
 import { WalletService } from 'src/app/core/services/wallet.service';
 
 @Component({
-	selector: 'app-transactions-give',
-	templateUrl: './transactions-give.component.html',
-	styleUrls: ['./transactions-give.component.scss'],
+    selector: 'app-transactions-give',
+    templateUrl: './transactions-give.component.html',
+    styleUrls: ['./transactions-give.component.scss'],
 })
 export class TransactionsGiveComponent implements OnInit {
-	currentUser!: IUser | null;
-	$users!: Observable<IUser[]>;
-	form!: FormGroup;
-	loading = false;
-	submitted = false;
-	errorMessage: string = '';
+    currentUser!: IUser | null;
+    $users!: Observable<IUser[]>;
+    form!: FormGroup;
+    loading = false;
+    submitted = false;
+    errorMessage: string = '';
 
-	constructor(
+    constructor(
 		private router: Router,
 		private userService: UserService,
 		private authService: AuthService,
 		private walletService: WalletService,
 		private formBuilder: FormBuilder
-	) {
-		this.currentUser = this.authService.currentUserValue;
-		this.initForm();
-	}
+    ) {
+        this.currentUser = this.authService.currentUserValue;
+        this.initForm();
+    }
 
-	ngOnInit(): void {
-		this.$users = this.userService.getAll();
-	}
+    ngOnInit(): void {
+        this.$users = this.userService.getAll();
+    }
 
-	initForm() {
-		this.form = this.formBuilder.group({
-			reciver: [null, Validators.required],
-			amount: [null, [Validators.required, Validators.min(0.1)]],
-		});
-	}
+    initForm() {
+        this.form = this.formBuilder.group({
+            reciver: [null, Validators.required],
+            amount: [null, [Validators.required, Validators.min(0.1)]],
+        });
+    }
 
-	// convenience getter for easy access to form fields
-	get f() {
-		return this.form.controls;
-	}
+    // convenience getter for easy access to form fields
+    get f() {
+        return this.form.controls;
+    }
 
-	onSubmit() {
-		this.submitted = true;
+    onSubmit() {
+        this.submitted = true;
 
-		// stop here if form is invalid
-		if (this.form.invalid) {
-			return;
-		}
+        // stop here if form is invalid
+        if (this.form.invalid) {
+            return;
+        }
 
-		this.loading = true;
-		this.createTransaction();
-	}
+        this.loading = true;
+        this.createTransaction();
+    }
 
-	createTransaction() {
-		let transaction: ITransactionRequest;
-		const { amount, reciver } = this.form.value;
+    createTransaction() {
+        let transaction: ITransactionRequest;
+        const { amount, reciver } = this.form.value;
 
-		if (this.currentUser) {
-			transaction = {
-				sender: {
-					id: this.currentUser?.id,
-					email: this.currentUser?.email,
-				},
-				reciver: { id: reciver.id, email: reciver.email },
-				amount,
-			};
+        if (this.currentUser) {
+            transaction = {
+                sender: {
+                    id: this.currentUser?.id,
+                    email: this.currentUser?.email,
+                },
+                reciver: { id: reciver.id, email: reciver.email },
+                amount,
+            };
 
-			this.walletService.createTransaction(transaction).subscribe({
-				next: () => {
-					this.router.navigate(['/']);
-				},
-				error: (error) => {
-					this.errorMessage = error.error.message;
-					console.error(error.error.message);
-				},
-			});
-		}
-	}
+            this.walletService.createTransaction(transaction).subscribe({
+                next: () => {
+                    this.router.navigate(['/']);
+                },
+                error: (error) => {
+                    this.errorMessage = error.error.message;
+                    console.error(error.error.message);
+                },
+            });
+        }
+    }
 }

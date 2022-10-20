@@ -5,11 +5,11 @@ import { TransactionsListRoutingModule } from './transactions-home-routing.modul
 import { TransanctionsListComponent } from 'src/app/core/components/transanctions-list/transanctions-list.component';
 
 @NgModule({
-	declarations: [TransactionsHomeComponent],
-	imports: [
-		CommonModule,
-		TransactionsListRoutingModule,
-		TransanctionsListComponent,
-	],
+    declarations: [TransactionsHomeComponent],
+    imports: [
+        CommonModule,
+        TransactionsListRoutingModule,
+        TransanctionsListComponent,
+    ],
 })
 export class TransactionsListModule {}

@@ -6,13 +6,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    TransactionsAddComponent
-  ],
-  imports: [
-    CommonModule,
-    TransactionsAddRoutingModule,
-    ReactiveFormsModule,
-  ]
+    declarations: [
+        TransactionsAddComponent
+    ],
+    imports: [
+        CommonModule,
+        TransactionsAddRoutingModule,
+        ReactiveFormsModule,
+    ]
 })
 export class TransactionsAddModule { }
